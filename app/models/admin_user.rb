@@ -8,7 +8,7 @@ class AdminUser < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :username, :nome, :password, :password_confirmation, :remember_me,:admin
 
-  has_many :orders
+  has_many :servicos
 
   validates_presence_of :username,:nome
   validates_uniqueness_of :username, :email, :allow_blank => true

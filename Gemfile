@@ -7,6 +7,8 @@ gem "activeadmin", '0.5.1'
 gem "faker"
 gem 'hoptoad_notifier', '2.4.11'
 gem 'cancan', '1.6.7'
+gem 'cocoon', :git => 'https://github.com/nathanvda/cocoon'
+
 
 group :development do
   gem 'mechanize'

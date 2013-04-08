@@ -1,3 +1,4 @@
+# coding: utf-8
 ActiveAdmin.register_page "Dashboard" do
 
   content :title => proc{ I18n.t("active_admin.dashboard") } do
@@ -5,67 +6,47 @@ ActiveAdmin.register_page "Dashboard" do
     columns do
 
       column do
-        panel "Recent Orders" do
-          table_for Order.order('id desc').limit(10) do
-            column("State")   {|order| status_tag(order.state)                                    } 
-            column("Customer"){|order| link_to(order.nome, admin_customer_path(order)) } 
-            column("Total")   {|order| number_to_currency order.total_price                       } 
+        panel "Últimos serviços..." do
+          table_for Servico.order('id desc').limit(10) do
+            column("NOTA Nº"){|servico| h4 link_to("#".concat(servico.id.to_s), aticell_servico_path(servico)) } 
+            column("Tipo"){|servico| servico.tipos.capitalize } 
+            column("Nome do Cliente"){|servico| servico.nome.capitalize } 
+            column("Status")   {|servico| 
+              if servico.status.blank?
+                status_tag("aguardando") 
+              elsif  servico.status=="CONCLUIDO"
+                status_tag("CONCLUÍDO",:ok)
+              else
+                 status_tag("NÃO CONCLUÍDO",:error) 
+              end                                      } 
+            column("Total")   {|servico| number_to_currency servico.total_price                       } 
           end
         end
       end
-
-    end # columns
-
-    columns do
 
       column do
-        panel "ActiveAdmin Demo" do
-          div do
-            render('/admin/sidebar_links', :model => 'dashboards')
-          end
-
-          div do
-            br
+        panel "Envelheçendo no estoque - 60 até 90 dias" do
+          table_for Servico.velhos.order('id desc').limit(10) do
+            column("Data emissão"){|servico|  servico.created_at.to_date } 
+            column("Tipo"){|servico| servico.tipos.capitalize } 
+            column("Nome Cliente"){|servico| h4  link_to(servico.nome.capitalize, aticell_servico_path(servico)) } 
             
+            column("Status")   {|servico| 
+              if servico.status==""
+                status_tag("---------") 
+              elseif  servico.status=="CONCLUIDO"
+                status_tag("CONCLUÍDO",:ok)
+              else
+                 status_tag("NÃO CONCLUÍDO",:error) 
+              end                                      } 
+            column("Total") {|servico| number_to_currency servico.total_price} 
+            column("Dias")  {|servico| (Date.today.to_date- servico.created_at.to_date).to_i}
           end
         end
       end
 
     end # columns
 
-    # Define your dashboard sections here. Each block will be
-    # rendered on the dashboard in the context of the view. So just
-    # return the content which you would like to display.
     
-    # The dashboard is organized in rows and columns, where each row
-    # divides the space for its child columns equally.
-
-    # To start a new row, open a new 'columns' block, and to start a
-    # new column, open a new 'colum' block. That way, you can exactly
-    # define the position for each content div.
-
-    # == Simple Dashboard Column
-    # Here is an example of a simple dashboard column
-    #
-    #   column do
-    #     panel "Recent Posts" do
-    #       content_tag :ul do
-    #         Post.recent(5).collect do |post|
-    #           content_tag(:li, link_to(post.title, admin_post_path(post)))
-    #         end.join.html_safe
-    #       end
-    #     end
-    #   end
-    
-    # == Render Partials
-    # The block is rendererd within the context of the view, so you can
-    # easily render a partial rather than build content in ruby.
-    #
-    #   column do
-    #     panel "Recent Posts" do
-    #       render 'recent_posts' # => this will render /app/views/admin/dashboard/_recent_posts.html.erb
-    #     end
-    #   end
-
   end # content
 end

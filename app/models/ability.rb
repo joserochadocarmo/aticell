@@ -10,8 +10,7 @@ class Ability
     else
         #can :manage, LineItem
         can :manage, :all
-        can :manage, Order
-        #can [:manage], Servico
+        can :manage, Servico
         #cannot :destroy, Order
         #cannot :manage, AdminUser
     end

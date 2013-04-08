@@ -1,0 +1,8 @@
+<tr class="nested-fields">
+<td><%= f.input :quantidade,:label => false, :input_html => {:onchange =>'calc()',:class=> 'quantidade', :style => "width:40px" }    %></td>
+<td><%= f.input :unidade, :label => false, :input_html => {:class=> 'unidade', :style => "width:30px" } %></td>
+<td><%= f.input :descricao, :label => false,:input_html => {:style => "width:200px;font-size: 15px !important;" } %></td>
+<td><%= f.input :price, :label => false,:input_html => {:onfocus =>"$(this).maskMoney();$('.subtotal').maskMoney();", :onchange =>'calc()', :style => "width:80px;text-align: right;",:class=> 'price' } %></td>
+<td><%= f.input :sub_total, :label => false,:input_html => {:type => 'number', :class =>'subtotal', :style => "width:120px;font-size: 18px !important;", :disabled => true} %></td>
+<td><%= link_to_remove_association "remover", f %></td>
+</tr>

@@ -1,0 +1,110 @@
+
+<%= javascript_include_tag :cocoon %>
+<%= javascript_include_tag "jquery.maskMoney" %>
+<script type="text/javascript">
+    // execute script only when DOM has finished loading
+    $(document).ready(function() {
+      $('.add_fields').addClass('button');
+
+      $('.add_fields').click(function(){
+        $(".price").maskMoney();
+        $(".subtotal").maskMoney();  
+      });    
+
+      if ($('[class$="quantidade"]').length==0){
+        $('.add_fields').click();    
+      }
+
+      calc();
+
+      $('#itens').bind("cocoon:after-remove",function() {
+         calc();
+       });
+    });
+
+    function calc(){
+        var sum=0;
+        var quantidades = new Array();
+        var prices = new Array();
+
+        $('[class$="quantidade"]').each(function(i,elem) {
+          var quantidade=0
+          if(elem.value==0){
+            $(this).val('');
+          }
+          if(elem.value!="")
+            quantidade=elem.value;
+          quantidades[i] = isNaN(quantidade) ? 0 : parseInt(quantidade);
+        });
+
+        $('[class$="price"]').each(function(i,elem) {
+          prices[i] = isNaN(elem.value) ? 0 : elem.value;
+          $(this).val(parseFloat(elem.value).toFixed(2));
+        });
+
+        $('[class$="subtotal"]').each(function(i,elem) {
+          $(this).val("R$ " + parseFloat(quantidades[i]*prices[i]).toFixed(2));
+        });
+
+        $('[class$="subtotal"]').each(function(i,elem) {
+          if($(this).is(":visible")){
+            sum = sum+parseFloat(elem.value.replace("R$ ","")); 
+            $('#total').text("R$ " + parseFloat(sum).toFixed(2));
+          }
+        });
+        
+      };
+</script>
+
+<!--f.input :tipos,:as =>:radio, :collection => tipos,:prompt => "--Selecione--" --!>
+<%= semantic_form_for [:aticell,@servico] do |f| %>
+  <%= f.inputs "Dados do novo serviço" do %>
+      <%= f.input :tipos,:label=>false,:as =>:horizontal, :collection => tipos %>
+      <%= f.input :nome,:wrapper_html => { :class => 'fl' } %>
+      <%= f.input :endereco,:wrapper_html => { :class => 'fl1'} %>
+      <%= f.input :telefone, :wrapper_html => { :class => 'fl2' } %>
+      <%= f.input :modelo, :wrapper_html => { :class => 'fl4' } %>
+      <%= f.input :imei, :wrapper_html => { :class => 'fl2' } %>
+      <%= f.input :admin_user_id,:as =>:hidden,:input_html => {:value =>current_admin_user.id}, :wrapper_html => { visibility:'hidden' } %>
+  <% end %>
+  <% unless @servico.new_record? %>
+    <%= f.inputs "Controle de Serviços" do %>
+      <%= f.input :status,:label=>'Status',:as =>:horizontal, :collection => status %>
+      <%= f.input :entrega,:label => "Entregue?",:as =>:horizontal %>
+    <% end %>    
+  <% end %>    
+
+  <div id='itens'>
+  <%= f.inputs "Lista de mercadorias" do %>
+      <table style="margin-bottom: -0.6em;">
+        <tr>
+          <th style="width: 7%;">Quant.</th>
+          <th style="width: 8%;">Unid.</th>
+          <th style="width: 26%;">Discriminação das mercadorias</th>
+          <th style="width: 10%;">P. Unitário</th>
+          <th style="width: 10%;"><b style="margin-left: 47px;">SubTotal</b></th>
+          <th></th>
+        </tr>
+    
+      <%= f.semantic_fields_for :produtos do |item| %>
+        
+        <%= render 'admin/servicos/line_item_fields', :f => item %>
+        
+      <% end %>
+      </table>
+      
+      <li id="servico_submit_action" class="action input_action ">
+        <%= link_to_add_association 'adicionar', f, :produtos,:partial => 'admin/servicos/line_item_fields' %>
+      </li>
+
+  <% end %>
+  </div>
+
+  <%= f.actions do %>
+    <%= f.action :submit, :button_html => { :class => "primary", :disable_with => 'Aguarde...' } %>
+    <li class="cancel"><%= link_to "Cancel", [:aticell,@servico] %></li>
+  <% end %>
+
+<% end %>
+
+

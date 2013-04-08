@@ -3,3 +3,61 @@
   display: none !important; 
 }
 table.dashboard td { width: 33%; }
+
+form.formtastic fieldset ol li.fl {float: left; margin-right: -6em; width: 40%;}
+
+form.formtastic fieldset ol li.fl1 {float: left; margin-right: -7em; width: 45%;}
+form.formtastic fieldset ol li.fl2 {float: left; margin-right: -1em; width: 25%;}
+form.formtastic fieldset ol li.fl4 {float: left; margin-right: 6em; width: 25%;}
+
+body.active_admin form input[type="text"], body.active_admin form input[type="password"], body.active_admin form input[type="email"], body.active_admin form input[type="number"], body.active_admin form input[type="url"], body.active_admin form input[type="tel"], body.active_admin form textarea {
+    font-size: 13px !important;
+}
+
+select{
+	font-size: 15px !important;	
+}
+
+.quantidade{
+	font-size: 18px !important;	
+}
+
+.subtotal{
+	color: #932419;
+    font-weight: bold;
+    text-align: right ;
+    font-size: 18px; 
+}
+
+body.active_admin form fieldset ol > li label {
+    font-size: 13px !important;
+}
+
+body.active_admin form fieldset legend span {
+    font-size: 14px !important;
+}
+
+.inline-errors {
+    color: #932419;
+    font-weight: bold;
+    margin: 0.3em 0 0 20%;
+    text-transform: capitalize;
+}
+
+#active_admin_content {
+    margin: 0 !important;
+    padding: 4px 30px !important;
+}
+
+#title_bar h2 {
+    font-size: 1.6em !important;
+}
+
+
+#title_bar #titlebar_left, body.active_admin #title_bar #titlebar_right {
+    height: 40px !important;
+}
+
+body.active_admin #title_bar{
+	padding: 3px 30px !important;
+}

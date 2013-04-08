@@ -22,7 +22,7 @@ ActiveAdmin.setup do |config|
   # will namespace routes to /hello_world/*
   #
   # To set no namespace by default, use:
-  #   config.default_namespace = false
+  #config.default_namespace = false
   config.default_namespace = :aticell
 
 
@@ -62,7 +62,7 @@ ActiveAdmin.setup do |config|
   # You can add before, after and around filters to all of your
   # Active Admin resources from here. 
   #
-  # config.before_filter :do_something_awesome
+  config.before_filter :set_admin_locale
 
 
   # == Register Stylesheets & Javascripts
@@ -84,7 +84,7 @@ ActiveAdmin.setup do |config|
 
   # == Batch Actions
   # Enable and disable Batch Actions
-  config.batch_actions = true
+  #config.batch_actions = true
 
   # == CSV options
   # Set the CSV builder separator (default is ",")

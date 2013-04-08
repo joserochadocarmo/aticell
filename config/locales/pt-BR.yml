@@ -206,7 +206,7 @@ pt-BR:
     errors:
       <<: *errors
       models:
-        order:
+        servico:
           attributes:
             tipos:
               inclusion: "Por favor, selecione um tipo de serviço"
@@ -215,5 +215,6 @@ pt-BR:
       no: 'Não'
       create: 'Salvar'
       update: 'Atualizar'
+      cancel: 'Cancelar'
       submit: 'Salvar'
       required: 'obrigatório'

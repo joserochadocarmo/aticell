@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130324103415) do
+ActiveRecord::Schema.define(:version => 20130323190454) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -40,16 +40,16 @@ ActiveRecord::Schema.define(:version => 20130324103415) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "nome"
     t.string   "username"
     t.boolean  "admin",                               :default => false
-    t.string   "nome"
   end
 
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
-  create_table "line_items", :force => true do |t|
-    t.integer  "order_id"
+  create_table "produtos", :force => true do |t|
+    t.integer  "servico_id"
     t.integer  "quantidade",                                              :default => 0
     t.string   "unidade",    :limit => 4
     t.string   "descricao",  :limit => 100
@@ -58,9 +58,9 @@ ActiveRecord::Schema.define(:version => 20130324103415) do
     t.datetime "updated_at"
   end
 
-  add_index "line_items", ["order_id"], :name => "index_line_items_on_order_id"
+  add_index "produtos", ["servico_id"], :name => "index_produtos_on_servico_id"
 
-  create_table "orders", :force => true do |t|
+  create_table "servicos", :force => true do |t|
     t.string   "tipos"
     t.string   "status"
     t.string   "nome"
@@ -70,14 +70,15 @@ ActiveRecord::Schema.define(:version => 20130324103415) do
     t.string   "imei"
     t.integer  "admin_user_id"
     t.datetime "data_saida"
+    t.boolean  "entrega"
     t.decimal  "total_price",   :precision => 8, :scale => 2, :default => 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "orders", ["admin_user_id"], :name => "index_orders_on_admin_user_id"
-  add_index "orders", ["data_saida"], :name => "index_orders_on_data_saida"
-  add_index "orders", ["modelo"], :name => "index_orders_on_modelo"
-  add_index "orders", ["nome"], :name => "index_orders_on_nome"
+  add_index "servicos", ["admin_user_id"], :name => "index_servicos_on_admin_user_id"
+  add_index "servicos", ["data_saida"], :name => "index_servicos_on_data_saida"
+  add_index "servicos", ["modelo"], :name => "index_servicos_on_modelo"
+  add_index "servicos", ["nome"], :name => "index_servicos_on_nome"
 
 end

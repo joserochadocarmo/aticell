@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/nathanvda/cocoon
+  revision: 80b73cd66d90be3d4795d3492d6940b22ce3eba7
+  specs:
+    cocoon (1.1.2)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -129,7 +135,7 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (~> 0.14.4)
-    rake (10.0.3)
+    rake (10.0.4)
     rdoc (3.12.2)
       json (~> 1.4)
     responders (0.6.5)
@@ -157,6 +163,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   cancan (= 1.6.7)
+  cocoon!
   faker
   hoptoad_notifier (= 2.4.11)
   mechanize
