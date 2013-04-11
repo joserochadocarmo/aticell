@@ -1,6 +1,6 @@
 # coding: utf-8
 class Servico < ActiveRecord::Base
-
+  
   belongs_to :admin_user
   has_many :produtos, :dependent => :destroy
   accepts_nested_attributes_for :produtos, :reject_if => :all_blank, :allow_destroy => true

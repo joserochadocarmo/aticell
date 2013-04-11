@@ -26,7 +26,7 @@ ActiveAdmin.register_page "Dashboard" do
 
       column do
         panel "Envelheçendo no estoque - 60 até 90 dias" do
-          table_for Servico.velhos.order('id desc').limit(10) do
+          table_for Servico.velhos.order('created_at desc').limit(10) do
             column("Data emissão"){|servico|  servico.created_at.to_date } 
             column("Tipo"){|servico| servico.tipos.capitalize } 
             column("Nome Cliente"){|servico| h4  link_to(servico.nome.capitalize, aticell_servico_path(servico)) } 
@@ -47,6 +47,5 @@ ActiveAdmin.register_page "Dashboard" do
 
     end # columns
 
-    
   end # content
 end

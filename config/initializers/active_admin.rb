@@ -89,6 +89,8 @@ ActiveAdmin.setup do |config|
   # == CSV options
   # Set the CSV builder separator (default is ",")
   # config.csv_column_separator = ','</pre>
+
+  config.view_factory.footer = Footer
 end
 
 module ActiveAdmin::ViewHelpers
