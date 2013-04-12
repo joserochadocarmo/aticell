@@ -96,6 +96,7 @@ GEM
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    kgio (2.8.0)
     mail (2.2.19)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
@@ -114,6 +115,7 @@ GEM
       hashery (~> 2.0)
       ruby-rc4
       ttfunk
+    pg (0.15.1)
     polyglot (0.3.3)
     rack (1.2.8)
     rack-mount (0.6.14)
@@ -134,6 +136,7 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (~> 0.14.4)
+    raindrops (0.10.0)
     rake (10.0.4)
     rdoc (3.12.2)
       json (~> 1.4)
@@ -149,6 +152,10 @@ GEM
       polyglot (>= 0.3.1)
     ttfunk (1.0.3)
     tzinfo (0.3.37)
+    unicorn (4.6.2)
+      kgio (~> 2.6)
+      rack
+      raindrops (~> 0.7)
     warden (1.2.1)
       rack (>= 1.0)
 
@@ -161,6 +168,8 @@ DEPENDENCIES
   binding_of_caller
   cancan (= 1.6.7)
   cocoon!
+  pg (~> 0.15.1)
   prawn!
   rails (= 3.0.10)
   sqlite3-ruby
+  unicorn
