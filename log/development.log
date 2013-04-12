@@ -25196,3 +25196,6 @@ Started GET "/aticell/servicos/2/generate_pdf" for 127.0.0.1 at 2013-04-11 22:44
 Rendered text template (0.0ms)
 Sent data ORCAMENTO Nota Nº2 .pdf (2.0ms)
 Completed 200 OK in 362ms (Views: 1.8ms | ActiveRecord: 3.6ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/neto/Downloads/aticell/config/environment.rb:5)
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from <top (required)> at /home/neto/Downloads/aticell/config/initializers/config.rb:1)
+DEPRECATION WARNING: RAILS_ENV is deprecated. Please use ::Rails.env. (called from <top (required)> at /home/neto/Downloads/aticell/config/initializers/config.rb:1)

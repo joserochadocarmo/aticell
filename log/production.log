@@ -1,0 +1,20 @@
+
+
+Started GET "/aticell/servicos/2/generate_pdf" for 127.0.0.1 at 2013-04-11 23:49:27 -0300
+
+LoadError (cannot load such file -- sqlite3):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.2ms)
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.5ms)
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.4ms)
+
+
+Started GET "/aticell/" for 127.0.0.1 at 2013-04-11 23:49:33 -0300
+
+LoadError (cannot load such file -- sqlite3):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.1ms)
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.9ms)
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.7ms)
