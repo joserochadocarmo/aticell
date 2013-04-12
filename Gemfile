@@ -9,13 +9,13 @@ gem 'activeadmin', '0.5.1'
 gem 'cancan', '1.6.7'
 gem 'cocoon', :git => 'https://github.com/nathanvda/cocoon'
 gem 'prawn', :git => 'https://github.com/prawnpdf/prawn.git'
-gem 'pg'
+#gem "pg", "~> 0.15.1"
 
 group :development do
   #gem 'mechanize'
   gem 'better_errors'
   gem 'binding_of_caller'
-  #gem 'sqlite3-ruby', :require => 'sqlite3'
-  
+  gem 'sqlite3-ruby', :require => 'sqlite3'
+
 end
 

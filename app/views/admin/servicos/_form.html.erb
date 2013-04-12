@@ -38,6 +38,9 @@
         });
 
         $('[class$="price"]').each(function(i,elem) {
+          if(elem.value==0){
+            $(this).val('');
+          }
           prices[i] = isNaN(elem.value) ? 0 : elem.value;
           $(this).val(parseFloat(elem.value).toFixed(2));
         });

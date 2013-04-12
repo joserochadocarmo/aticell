@@ -7,7 +7,7 @@ module ApplicationHelper
 
 	def status
 		[
-	        [ 'Concluido', 'CONCLUIDO' ],
+	        [ 'Concluido!', 'CONCLUIDO' ],
 	        [ 'Não Concluido', 'NAOCONCLUIDO' ]
 	    ]
 	end
@@ -20,4 +20,14 @@ module ApplicationHelper
         [ 'Garantia','GARANTIA' ]
     ]
 	end
+
+	def format_date(date)
+      return nil unless date
+      date.strftime("%d/%m/%Y")
+    end
+
+    def format_time(time, include_date = true)
+      return nil unless time      
+      time.localtime.strftime("%d/%m/%Y %H:%M:%S")
+    end
 end

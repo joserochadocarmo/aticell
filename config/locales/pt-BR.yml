@@ -219,7 +219,7 @@ pt-BR:
       submit: 'Salvar'
       required: 'obrigatório'
   active_admin:
-    dashboard: "Painel Administrativo1"
+    dashboard: "Painel Administrativo"
     dashboard_welcome:
       welcome: "Bem vindo ao Active Admin. Esta é a página de painéis padrão."
       call_to_action: "Para adicionar seções ao painel, verifique 'app/admin/dashboard.rb'"

@@ -33,7 +33,7 @@ ActiveAdmin.register Servico do
   index do
     column("Nº NOTA", :sortable => :id) {|servico| link_to "##{servico.id} ", aticell_servico_path(servico) }
     column("Nome cliente", :nome, :sortable => :nome){|servico| link_to servico.nome.capitalize, aticell_servico_path(servico) }
-    column("Data emissão", :created_at,:sortable => :created_at)
+    column("Data emissão", :created_at,:sortable => :created_at){|servico| format_time(servico.created_at.to_time)}
     column("Status",:status,:sortable =>:status){|servico| 
       if servico.status.blank?
         status_tag("aguardando") 
@@ -43,7 +43,7 @@ ActiveAdmin.register Servico do
          status_tag("NÃO CONCLUÍDO",:error) 
       end
     }
-    column("Data Saída",:data_saida,:sortable => :data_saida)
+    column("Data Saída",:data_saida,:sortable => :data_saida){|servico| format_time(servico.data_saida)}
     
     column("Total",:total_price,:sortable => :total_price) {|servico| number_to_currency servico.total_price }
     default_actions
@@ -236,20 +236,20 @@ def generate_arquivo(servico)
     pdf.table [header] + items, :header => true,  
                 :cell_style => { :overflow => :shrink_to_fit, :min_font_size => 8,:size => 11,
                 :width => 82, :height => 20 } do |tabela|
+      tabela.row(-1).borders = []
       tabela.column(0).width = 50                  
       tabela.column(1).width = 50                  
       tabela.column(2).width = 150                  
       tabela.column(3).width = 70
       tabela.column(3).width = 80
-      tabela.row(0).size = 10                  
-      tabela.row(0).background_color = 'cccccc eeeeee'
-      tabela.row(0).column(0..1).align = :center
-      tabela.row(-1).borders = []
-      tabela.row(-4..-1).column(0..1).align = :center
-      tabela.row(-4..-1).column(3..5).align = :right
       tabela.row(0).style :font_style => :bold
       tabela.row(-1).style :font_style => :bold
-      tabela.row(-1).column(3..4).align= :right
+      tabela.row(0).size = 10                  
+      tabela.row(0).background_color = 'cccccc eeeeee'
+      tabela.row(0).column(0..5).align = :center
+      
+      tabela.row(1..-1).column(0..1).align = :center
+      tabela.row(1..-1).column(3..5).align = :right
     end
 
     # Terms
