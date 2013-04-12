@@ -8,16 +8,14 @@ gem 'activeadmin', '0.5.1'
 #gem 'nifty-generators'
 gem 'cancan', '1.6.7'
 gem 'cocoon', :git => 'https://github.com/nathanvda/cocoon'
-gem 'prawn'
+gem 'prawn', :git => 'https://github.com/prawnpdf/prawn.git'
 
 
 group :development do
   #gem 'mechanize'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'sqlite3-ruby', :require => 'sqlite3'
+  #gem 'sqlite3-ruby', :require => 'sqlite3'
+  gem 'pg'
 end
 
-group :production do
-	gem 'pg'
-end

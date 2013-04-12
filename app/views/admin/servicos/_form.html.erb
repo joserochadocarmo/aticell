@@ -43,10 +43,11 @@
         });
 
         $('[class$="subtotal"]').each(function(i,elem) {
-          $(this).val("R$ " + parseFloat(quantidades[i]*prices[i]).toFixed(2));
+          $(this).val(parseFloat(quantidades[i]*prices[i]).toFixed(2));
         });
 
         $('[class$="subtotal"]').each(function(i,elem) {
+
           if($(this).is(":visible")){
             sum = sum+parseFloat(elem.value.replace("R$ ","")); 
             $('#total').text("R$ " + parseFloat(sum).toFixed(2));
@@ -70,7 +71,7 @@
   <% unless @servico.new_record? %>
     <%= f.inputs "Controle de Serviços" do %>
       <%= f.input :status,:label=>'Status',:as =>:horizontal, :collection => status %>
-      <%= f.input :entrega,:label => "Entregue?",:as =>:horizontal %>
+      <%= f.input :entrega,:label => "Entregue?",:as =>:horizontal, :collection =>[["Sim!",true], ["Não",false]] %>
     <% end %>    
   <% end %>    
 

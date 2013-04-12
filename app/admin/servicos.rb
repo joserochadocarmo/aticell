@@ -91,7 +91,7 @@ ActiveAdmin.register Servico do
             th 'Entregue?:'
               td do
                 if servico.entrega.blank?
-                  status_tag("")
+                  
                 elsif servico.entrega
                   status_tag("SIM",:ok)
                 else
@@ -137,7 +137,7 @@ ActiveAdmin.register Servico do
 
   sidebar "Valor do Serviço", :only => [:show] do
     attributes_table_for servico do
-      row("Total") { h2 number_to_currency servico.total_price }
+      row("Total") { h2 "<div id='total' style='color: #932419;'>#{number_to_currency servico.total_price}</div>".html_safe }
     end
   end
 
@@ -190,6 +190,7 @@ def generate_arquivo(servico)
 
     pdf.rounded_rectangle [-05, 550],420, 140, 20
     pdf.rounded_rectangle [425, 550],400, 150, 20
+    pdf.rounded_rectangle [-05, 410],420, 90, 20
     pdf.stroke_vertical_line(550, 410 ,:at => 320 )
 
     pdf.font "#{Prawn::BASEDIR}/data/fonts/DejaVuSans.ttf" do
@@ -208,8 +209,6 @@ def generate_arquivo(servico)
       pdf.text_box "#{servico.status=='NAOCONCLUIDO' ? EXED_CHECKBOX : EMPTY_CHECKBOX} NÃO CONCLUÍDO", :size => 8,:at => [325, 430]
     end
 
-    pdf.rounded_rectangle [-05, 410],420, 90, 20
-
     pdf.text_box "Data da Emissão: #{servico.created_at.strftime("%m/%d/%Y") }", :size => 11,:at => [5, 400]
     pdf.text_box "Nome: #{servico.nome.capitalize }", :size => 11,:at => [5, 385]
     pdf.text_box "Endereço: #{servico.endereco }", :size => 11,:at => [5, 370]
@@ -223,31 +222,35 @@ def generate_arquivo(servico)
     end
 
     pdf.move_down 235
-    #pdf.draw_text "#{t('.created_at')}: #{l(invoice.created_at, :format => :short)}", :at => [pdf.bounds.width / 2, pdf.bounds.height - 30]
 
     # Items
-    header = ['Quant.', 'Unid', 'Discriminação das mercadorias', 'P. Unitário','Total R$']
+    header = ['Quant.', 'Unid.', 'Discriminação das mercadorias', 'P. Unitário','Total R$']
     items = servico.produtos.collect do |item|
       [item.quantidade.to_s, item.unidade,item.descricao, number_to_currency(item.price), number_to_currency(item.price*item.quantidade)]
     end
-    
-    items = items + [["", "", "Discount:", "#{number_with_delimiter(servico.total_price)}%"]] \
-                  + [["", "", "Sub-total:", "#{number_to_currency(servico.total_price)}"]] \
-                  + [["", "", "Total:", "#{number_to_currency(servico.total_price)}"]]
-
-    pdf.table [header] + items, :header => true, :width => pdf.bounds.width do
-      row(-4..-1).borders = []
-      row(-4..-1).column(2).align = :right
-      row(0).style :font_style => :bold
-      row(-1).style :font_style => :bold
+    3.times do
+      items = items + [["","", "", "", ""]] if servico.produtos.count < 5
     end
+    items = items + [["","", "", "Total:", "#{number_to_currency(servico.total_price)}"]]
     
-                     # :border_style => :grid,
-                     # :headers => header,
-                     # :width => pdf.bounds.width,
-                     # :row_colors => %w{cccccc eeeeee},
-                     # :align => { 0 => :right, 1 => :left, 2 => :right, 3 => :right, 4 => :right }
-
+    pdf.table [header] + items, :header => true,  
+                :cell_style => { :overflow => :shrink_to_fit, :min_font_size => 8,:size => 11,
+                :width => 82, :height => 20 } do |tabela|
+      tabela.column(0).width = 50                  
+      tabela.column(1).width = 50                  
+      tabela.column(2).width = 150                  
+      tabela.column(3).width = 70
+      tabela.column(3).width = 80
+      tabela.row(0).size = 10                  
+      tabela.row(0).background_color = 'cccccc eeeeee'
+      tabela.row(0).column(0..1).align = :center
+      tabela.row(-1).borders = []
+      tabela.row(-4..-1).column(0..1).align = :center
+      tabela.row(-4..-1).column(3..5).align = :right
+      tabela.row(0).style :font_style => :bold
+      tabela.row(-1).style :font_style => :bold
+      tabela.row(-1).column(3..4).align= :right
+    end
 
     # Terms
     #if invoice.terms != ''
