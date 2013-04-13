@@ -15,7 +15,8 @@ class Ability
         #can :manage, Produtos
         #can :read, Admin
         cannot :destroy, Servico
-        cannot :manage, AdminUser
+        cannot [:destroy,:create,:update,:read], AdminUser
+        can [:read,:update], AdminUser, :id => user.id
     end
     #
     # The first argument to `can` is the action you are giving the user permission to do.

@@ -10,7 +10,8 @@ ActiveAdmin.register AdminUser, :as => "Usuario" do
   # add this call - it will show only allowed action items
   active_admin_allowed_action_items
   
-  menu :if => proc{admin?}     
+  menu :if => proc{admin?}
+  menu :label => "Usuários"
 
   config.batch_actions = false
   config.paginate = false

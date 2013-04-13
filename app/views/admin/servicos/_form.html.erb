@@ -76,7 +76,7 @@
       <%= f.input :status,:label=>'Status',:as =>:horizontal, :collection => status %>
       <%= f.input :entrega,:label => "Entregue?",:as =>:horizontal, :collection =>[["Sim!",true], ["Não",false]] %>
       <% if current_admin_user.admin? %>
-        <%= f.input :data_saida, :as => :date %>
+        <%= f.input :created_at, :as => :date,:label => 'Criado em' %>
       <% end %>    
     <% end %>    
   <% end %>    

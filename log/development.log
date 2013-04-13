@@ -40205,3 +40205,658 @@ ActionController::RoutingError (No route matches "/stylesheets/active_admin/prin
   
 
 Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/neto/Downloads/aticell/config/environment.rb:5)
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from <top (required)> at /home/neto/Downloads/aticell/config/initializers/config.rb:1)
+DEPRECATION WARNING: RAILS_ENV is deprecated. Please use ::Rails.env. (called from <top (required)> at /home/neto/Downloads/aticell/config/initializers/config.rb:1)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/neto/Downloads/aticell/config/environment.rb:5)
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from <top (required)> at /home/neto/Downloads/aticell/config/initializers/config.rb:1)
+DEPRECATION WARNING: RAILS_ENV is deprecated. Please use ::Rails.env. (called from <top (required)> at /home/neto/Downloads/aticell/config/initializers/config.rb:1)
+
+
+Started GET "/aticell/dashboard" for 127.0.0.1 at 2013-04-13 07:59:37 -0300
+  Processing by Aticell::DashboardController#index as HTML
+  [1m[36mSQL (1.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mAdminUser Load (0.8ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "servicos"[0m
+  [1m[35mServico Load (1.8ms)[0m  SELECT "servicos".* FROM "servicos" ORDER BY id desc LIMIT 10
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "servicos" WHERE (date(created_at) <= '2013-02-13' and data_saida is null)[0m
+  [1m[35mServico Load (0.8ms)[0m  SELECT "servicos".* FROM "servicos" WHERE (date(created_at) <= '2013-02-13' and data_saida is null) ORDER BY created_at desc LIMIT 10
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/page/index.html.arb (75.9ms)
+Completed 200 OK in 180ms (Views: 84.2ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-13 07:59:38 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/aticell/usuarios" for 127.0.0.1 at 2013-04-13 07:59:40 -0300
+  Processing by Aticell::UsuariosController#index as HTML
+  [1m[36mAdminUser Load (0.8ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1[0m
+  [1m[35mAdminUser Load (1.8ms)[0m  SELECT "admin_users".* FROM "admin_users" LIMIT 10000 OFFSET 0
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "admin_users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "admin_users".* FROM "admin_users" LIMIT 10000 OFFSET 0
+  [1m[36mAdminUser Load (2.0ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" ORDER BY "admin_users"."id" desc LIMIT 10000 OFFSET 0[0m
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/resource/index.html.arb (430.6ms)
+Completed 200 OK in 511ms (Views: 438.1ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-13 07:59:41 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started POST "/aticell/logout" for 127.0.0.1 at 2013-04-13 07:59:43 -0300
+  Processing by ActiveAdmin::Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"bfF6HNlJfusDmLBpXc6hfsLPOFVwmv5ViTQ2JpxM+8c="}
+  [1m[35mAdminUser Load (0.8ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1
+Redirected to http://localhost:3000/aticell
+Completed 302 Found in 53ms
+
+
+Started GET "/aticell" for 127.0.0.1 at 2013-04-13 07:59:43 -0300
+  Processing by Aticell::DashboardController#index as HTML
+Completed 401 Unauthorized in 72ms
+
+
+Started GET "/aticell/login" for 127.0.0.1 at 2013-04-13 07:59:43 -0300
+  Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/devise/shared/_links.erb (2.1ms)
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (172.9ms)
+Completed 200 OK in 224ms (Views: 179.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-13 07:59:43 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.6ms)
+
+
+Started POST "/aticell/login" for 127.0.0.1 at 2013-04-13 07:59:50 -0300
+  Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KoMuo00Xa1+mDaK0fjDc1E6CyStotDzpll/X+SmRAQQ=", "admin_user"=>{"username"=>"jose", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Entrar"}
+  [1m[36mAdminUser Load (0.8ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."username" = 'jose' LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "admin_users" SET "last_sign_in_at" = '2013-04-13 01:06:56.341406', "current_sign_in_at" = '2013-04-13 10:59:50.455553', "sign_in_count" = 4, "updated_at" = '2013-04-13 10:59:50.456116' WHERE "admin_users"."id" = 2
+Redirected to http://localhost:3000/aticell
+Completed 302 Found in 392ms
+
+
+Started GET "/aticell" for 127.0.0.1 at 2013-04-13 07:59:50 -0300
+  Processing by Aticell::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.9ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "servicos"
+  [1m[36mServico Load (1.8ms)[0m  [1mSELECT "servicos".* FROM "servicos" ORDER BY id desc LIMIT 10[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "servicos" WHERE (date(created_at) <= '2013-02-13' and data_saida is null)
+  [1m[36mServico Load (0.7ms)[0m  [1mSELECT "servicos".* FROM "servicos" WHERE (date(created_at) <= '2013-02-13' and data_saida is null) ORDER BY created_at desc LIMIT 10[0m
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/page/index.html.arb (71.6ms)
+Completed 200 OK in 179ms (Views: 79.3ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-13 07:59:50 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/aticell/usuarios" for 127.0.0.1 at 2013-04-13 07:59:53 -0300
+  Processing by Aticell::UsuariosController#index as HTML
+  [1m[35mAdminUser Load (0.7ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 2 LIMIT 1
+  [1m[36mAdminUser Load (0.3ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE ('t'='f') LIMIT 10000 OFFSET 0[0m
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/resource/index.html.arb (150.1ms)
+Completed 200 OK in 241ms (Views: 160.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-13 07:59:53 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/aticell/usuarios/new" for 127.0.0.1 at 2013-04-13 07:59:56 -0300
+  Processing by Aticell::UsuariosController#new as HTML
+  [1m[35mAdminUser Load (0.8ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 2 LIMIT 1
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/resource/new.html.arb (8.6ms)
+Redirected to http://localhost:3000/aticell
+Completed 302 Found in 160ms
+
+
+Started GET "/aticell" for 127.0.0.1 at 2013-04-13 07:59:57 -0300
+  Processing by Aticell::DashboardController#index as HTML
+  [1m[36mAdminUser Load (1.2ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "servicos"
+  [1m[36mServico Load (1.8ms)[0m  [1mSELECT "servicos".* FROM "servicos" ORDER BY id desc LIMIT 10[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "servicos" WHERE (date(created_at) <= '2013-02-13' and data_saida is null)
+  [1m[36mServico Load (53.1ms)[0m  [1mSELECT "servicos".* FROM "servicos" WHERE (date(created_at) <= '2013-02-13' and data_saida is null) ORDER BY created_at desc LIMIT 10[0m
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/page/index.html.arb (125.4ms)
+Completed 200 OK in 238ms (Views: 81.2ms | ActiveRecord: 56.6ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-13 07:59:57 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/neto/Downloads/aticell/config/environment.rb:5)
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from <top (required)> at /home/neto/Downloads/aticell/config/initializers/config.rb:1)
+DEPRECATION WARNING: RAILS_ENV is deprecated. Please use ::Rails.env. (called from <top (required)> at /home/neto/Downloads/aticell/config/initializers/config.rb:1)
+
+
+Started GET "/aticell" for 127.0.0.1 at 2013-04-13 08:02:15 -0300
+  Processing by Aticell::DashboardController#index as HTML
+  [1m[36mSQL (1.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mAdminUser Load (0.8ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "servicos"[0m
+  [1m[35mServico Load (1.9ms)[0m  SELECT "servicos".* FROM "servicos" ORDER BY id desc LIMIT 10
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "servicos" WHERE (date(created_at) <= '2013-02-13' and data_saida is null)[0m
+  [1m[35mServico Load (0.9ms)[0m  SELECT "servicos".* FROM "servicos" WHERE (date(created_at) <= '2013-02-13' and data_saida is null) ORDER BY created_at desc LIMIT 10
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/page/index.html.arb (255.2ms)
+Completed 200 OK in 306ms (Views: 263.2ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-13 08:02:16 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/aticell/usuarios" for 127.0.0.1 at 2013-04-13 08:02:18 -0300
+  Processing by Aticell::UsuariosController#index as HTML
+  [1m[36mAdminUser Load (0.8ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 2 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Completed 500 Internal Server Error in 138ms
+
+NameError (undefined local variable or method `current_admin_user' for #<Ability:0xaab6300>):
+  app/models/ability.rb:19:in `initialize'
+  app/controllers/application_controller.rb:11:in `new'
+  app/controllers/application_controller.rb:11:in `current_ability'
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.1ms)
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.9ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/neto/Downloads/aticell/config/environment.rb:5)
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from <top (required)> at /home/neto/Downloads/aticell/config/initializers/config.rb:1)
+DEPRECATION WARNING: RAILS_ENV is deprecated. Please use ::Rails.env. (called from <top (required)> at /home/neto/Downloads/aticell/config/initializers/config.rb:1)
+
+
+Started GET "/aticell/usuarios" for 127.0.0.1 at 2013-04-13 08:04:21 -0300
+  Processing by Aticell::UsuariosController#index as HTML
+  [1m[36mSQL (1.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mAdminUser Load (0.7ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 2 LIMIT 1
+  [1m[36mAdminUser Load (1.7ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE ('t'='t') LIMIT 10000 OFFSET 0[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "admin_users" WHERE ('t'='t')
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE ('t'='t') LIMIT 10000 OFFSET 0[0m
+  [1m[35mAdminUser Load (1.9ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE ('t'='t') ORDER BY "admin_users"."id" desc LIMIT 10000 OFFSET 0
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/resource/index.html.arb (449.5ms)
+Completed 200 OK in 568ms (Views: 457.5ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-13 08:04:22 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/aticell/usuarios/1/edit" for 127.0.0.1 at 2013-04-13 08:04:27 -0300
+  Processing by Aticell::UsuariosController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAdminUser Load (1.1ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 2 LIMIT 1[0m
+  [1m[35mAdminUser Load (0.7ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/resource/edit.html.arb (199.2ms)
+Completed 200 OK in 343ms (Views: 210.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-13 08:04:28 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/aticell/usuarios/1/edit" for 127.0.0.1 at 2013-04-13 08:04:51 -0300
+  Processing by Aticell::UsuariosController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAdminUser Load (0.9ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 2 LIMIT 1[0m
+  [1m[35mAdminUser Load (0.7ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/resource/edit.html.arb (107.1ms)
+Completed 200 OK in 250ms (Views: 118.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-13 08:04:51 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started POST "/aticell/usuarios/1" for 127.0.0.1 at 2013-04-13 08:05:16 -0300
+  Processing by Aticell::UsuariosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KoMuo00Xa1+mDaK0fjDc1E6CyStotDzpll/X+SmRAQQ=", "usuario"=>{"nome"=>"admin", "username"=>"admin", "email"=>"admin@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Atualizar", "id"=>"1"}
+  [1m[36mAdminUser Load (0.7ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 2 LIMIT 1[0m
+  [1m[35mAdminUser Load (0.7ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "admin_users" WHERE ("admin_users"."username" = 'admin') AND ("admin_users".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "admin_users" WHERE ("admin_users"."email" = 'admin@example.com') AND ("admin_users".id <> 1) LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE "admin_users" SET "encrypted_password" = '$2a$10$bt1sou2o0QNDJNzdooPdjOeaFvaTPX19zkBGCBeBSUvpRFufbeQha', "updated_at" = '2013-04-13 11:05:16.627215' WHERE "admin_users"."id" = 1[0m
+Redirected to http://localhost:3000/aticell/usuarios/1
+Completed 302 Found in 459ms
+
+
+Started GET "/aticell/usuarios/1" for 127.0.0.1 at 2013-04-13 08:05:16 -0300
+  Processing by Aticell::UsuariosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mAdminUser Load (0.7ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 2 LIMIT 1
+  [1m[36mAdminUser Load (0.8ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1[0m
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/resource/show.html.arb (17.5ms)
+Completed 200 OK in 164ms (Views: 28.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-13 08:05:17 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/neto/Downloads/aticell/config/environment.rb:5)
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from <top (required)> at /home/neto/Downloads/aticell/config/initializers/config.rb:1)
+DEPRECATION WARNING: RAILS_ENV is deprecated. Please use ::Rails.env. (called from <top (required)> at /home/neto/Downloads/aticell/config/initializers/config.rb:1)
+
+
+Started GET "/aticell/usuarios" for 127.0.0.1 at 2013-04-13 08:06:22 -0300
+  Processing by Aticell::UsuariosController#index as HTML
+  [1m[36mSQL (1.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mAdminUser Load (0.7ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 2 LIMIT 1
+  [1m[36mAdminUser Load (1.7ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE ('t'='t') LIMIT 10000 OFFSET 0[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "admin_users" WHERE ('t'='t')
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE ('t'='t') LIMIT 10000 OFFSET 0[0m
+  [1m[35mAdminUser Load (1.9ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE ('t'='t') ORDER BY "admin_users"."id" desc LIMIT 10000 OFFSET 0
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/resource/index.html.arb (449.2ms)
+Completed 200 OK in 568ms (Views: 457.3ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-13 08:06:23 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/aticell/usuarios" for 127.0.0.1 at 2013-04-13 08:06:24 -0300
+  Processing by Aticell::UsuariosController#index as HTML
+  [1m[36mAdminUser Load (0.7ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 2 LIMIT 1[0m
+  [1m[35mAdminUser Load (1.7ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE ('t'='t') LIMIT 10000 OFFSET 0
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "admin_users" WHERE ('t'='t')[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE ('t'='t') LIMIT 10000 OFFSET 0
+  [1m[36mAdminUser Load (1.8ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE ('t'='t') ORDER BY "admin_users"."id" desc LIMIT 10000 OFFSET 0[0m
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/resource/index.html.arb (173.6ms)
+Completed 200 OK in 321ms (Views: 180.8ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-13 08:06:25 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/aticell/usuarios/1" for 127.0.0.1 at 2013-04-13 08:06:32 -0300
+  Processing by Aticell::UsuariosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mAdminUser Load (0.7ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 2 LIMIT 1
+  [1m[36mAdminUser Load (0.8ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1[0m
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/resource/show.html.arb (18.0ms)
+Completed 200 OK in 169ms (Views: 28.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-13 08:06:32 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/neto/Downloads/aticell/config/environment.rb:5)
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from <top (required)> at /home/neto/Downloads/aticell/config/initializers/config.rb:1)
+DEPRECATION WARNING: RAILS_ENV is deprecated. Please use ::Rails.env. (called from <top (required)> at /home/neto/Downloads/aticell/config/initializers/config.rb:1)
+
+
+Started GET "/aticell/usuarios" for 127.0.0.1 at 2013-04-13 08:07:12 -0300
+  Processing by Aticell::UsuariosController#index as HTML
+  [1m[36mSQL (1.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mAdminUser Load (0.7ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 2 LIMIT 1
+  [1m[36mAdminUser Load (2.3ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE ("admin_users"."id" = 2) LIMIT 10000 OFFSET 0[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "admin_users" WHERE ("admin_users"."id" = 2)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE ("admin_users"."id" = 2) LIMIT 10000 OFFSET 0[0m
+  [1m[35mAdminUser Load (1.2ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE ("admin_users"."id" = 2) ORDER BY "admin_users"."id" desc LIMIT 10000 OFFSET 0
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/resource/index.html.arb (536.2ms)
+Completed 200 OK in 657ms (Views: 544.0ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-13 08:07:13 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started POST "/aticell/logout" for 127.0.0.1 at 2013-04-13 08:07:17 -0300
+  Processing by ActiveAdmin::Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"KoMuo00Xa1+mDaK0fjDc1E6CyStotDzpll/X+SmRAQQ="}
+  [1m[36mAdminUser Load (0.7ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 2 LIMIT 1[0m
+Redirected to http://localhost:3000/aticell
+Completed 302 Found in 104ms
+
+
+Started GET "/aticell" for 127.0.0.1 at 2013-04-13 08:07:17 -0300
+  Processing by Aticell::DashboardController#index as HTML
+Completed 401 Unauthorized in 21ms
+
+
+Started GET "/aticell/login" for 127.0.0.1 at 2013-04-13 08:07:17 -0300
+  Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/devise/shared/_links.erb (2.0ms)
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (170.0ms)
+Completed 200 OK in 222ms (Views: 177.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-13 08:07:18 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.7ms)
+
+
+Started POST "/aticell/login" for 127.0.0.1 at 2013-04-13 08:07:21 -0300
+  Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vr7ZY2rfhfSm728BLHFFpSTYPETnGNn/n0QdSE8T934=", "admin_user"=>{"username"=>"admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Entrar"}
+  [1m[35mAdminUser Load (0.9ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."username" = 'admin' LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE "admin_users" SET "last_sign_in_at" = '2013-04-13 10:34:35.019586', "current_sign_in_at" = '2013-04-13 11:07:22.147982', "sign_in_count" = 10, "updated_at" = '2013-04-13 11:07:22.148559' WHERE "admin_users"."id" = 1[0m
+Redirected to http://localhost:3000/aticell
+Completed 302 Found in 383ms
+
+
+Started GET "/aticell" for 127.0.0.1 at 2013-04-13 08:07:22 -0300
+  Processing by Aticell::DashboardController#index as HTML
+  [1m[35mAdminUser Load (0.7ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "servicos"[0m
+  [1m[35mServico Load (2.0ms)[0m  SELECT "servicos".* FROM "servicos" ORDER BY id desc LIMIT 10
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "servicos" WHERE (date(created_at) <= '2013-02-13' and data_saida is null)[0m
+  [1m[35mServico Load (0.8ms)[0m  SELECT "servicos".* FROM "servicos" WHERE (date(created_at) <= '2013-02-13' and data_saida is null) ORDER BY created_at desc LIMIT 10
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/page/index.html.arb (128.0ms)
+Completed 200 OK in 237ms (Views: 135.9ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-13 08:07:22 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.6ms)
+
+
+Started GET "/aticell/usuarios" for 127.0.0.1 at 2013-04-13 08:07:24 -0300
+  Processing by Aticell::UsuariosController#index as HTML
+  [1m[36mAdminUser Load (0.7ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1[0m
+  [1m[35mAdminUser Load (1.7ms)[0m  SELECT "admin_users".* FROM "admin_users" LIMIT 10000 OFFSET 0
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "admin_users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "admin_users".* FROM "admin_users" LIMIT 10000 OFFSET 0
+  [1m[36mAdminUser Load (2.0ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" ORDER BY "admin_users"."id" desc LIMIT 10000 OFFSET 0[0m
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/resource/index.html.arb (176.7ms)
+Completed 200 OK in 307ms (Views: 184.9ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-13 08:07:24 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started POST "/aticell/logout" for 127.0.0.1 at 2013-04-13 08:07:28 -0300
+  Processing by ActiveAdmin::Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"vr7ZY2rfhfSm728BLHFFpSTYPETnGNn/n0QdSE8T934="}
+  [1m[35mAdminUser Load (0.7ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1
+Redirected to http://localhost:3000/aticell
+Completed 302 Found in 50ms
+
+
+Started GET "/aticell" for 127.0.0.1 at 2013-04-13 08:07:28 -0300
+  Processing by Aticell::DashboardController#index as HTML
+Completed 401 Unauthorized in 18ms
+
+
+Started GET "/aticell/login" for 127.0.0.1 at 2013-04-13 08:07:28 -0300
+  Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/devise/shared/_links.erb (1.9ms)
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (37.0ms)
+Completed 200 OK in 86ms (Views: 43.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-13 08:07:28 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/neto/Downloads/aticell/config/environment.rb:5)
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from <top (required)> at /home/neto/Downloads/aticell/config/initializers/config.rb:1)
+DEPRECATION WARNING: RAILS_ENV is deprecated. Please use ::Rails.env. (called from <top (required)> at /home/neto/Downloads/aticell/config/initializers/config.rb:1)
+
+
+Started POST "/aticell/login" for 127.0.0.1 at 2013-04-13 08:13:24 -0300
+  Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"83aDyoLokcdwQpLM+4EahUPa6JGwLByv7tkBDasgqJw=", "admin_user"=>{"username"=>"jose", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Entrar"}
+  [1m[36mSQL (1.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mAdminUser Load (2.2ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."username" = 'jose' LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE "admin_users" SET "last_sign_in_at" = '2013-04-13 10:59:50.455553', "current_sign_in_at" = '2013-04-13 11:13:24.579645', "sign_in_count" = 5, "updated_at" = '2013-04-13 11:13:24.580269' WHERE "admin_users"."id" = 2[0m
+Redirected to http://localhost:3000/aticell
+Completed 302 Found in 526ms
+
+
+Started GET "/aticell" for 127.0.0.1 at 2013-04-13 08:13:24 -0300
+  Processing by Aticell::DashboardController#index as HTML
+  [1m[35mAdminUser Load (0.8ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "servicos"[0m
+  [1m[35mServico Load (1.9ms)[0m  SELECT "servicos".* FROM "servicos" ORDER BY id desc LIMIT 10
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "servicos" WHERE (date(created_at) <= '2013-02-13' and data_saida is null)[0m
+  [1m[35mServico Load (0.8ms)[0m  SELECT "servicos".* FROM "servicos" WHERE (date(created_at) <= '2013-02-13' and data_saida is null) ORDER BY created_at desc LIMIT 10
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/page/index.html.arb (120.6ms)
+Completed 200 OK in 189ms (Views: 129.1ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-13 08:13:25 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/aticell/dashboard" for 127.0.0.1 at 2013-04-13 08:13:27 -0300
+  Processing by Aticell::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.8ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "servicos"
+  [1m[36mServico Load (55.4ms)[0m  [1mSELECT "servicos".* FROM "servicos" ORDER BY id desc LIMIT 10[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "servicos" WHERE (date(created_at) <= '2013-02-13' and data_saida is null)
+  [1m[36mServico Load (0.8ms)[0m  [1mSELECT "servicos".* FROM "servicos" WHERE (date(created_at) <= '2013-02-13' and data_saida is null) ORDER BY created_at desc LIMIT 10[0m
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/page/index.html.arb (126.4ms)
+Completed 200 OK in 236ms (Views: 80.3ms | ActiveRecord: 57.5ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-13 08:13:27 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/aticell/dashboard" for 127.0.0.1 at 2013-04-13 08:13:30 -0300
+  Processing by Aticell::DashboardController#index as HTML
+  [1m[35mAdminUser Load (0.7ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "servicos"[0m
+  [1m[35mServico Load (1.8ms)[0m  SELECT "servicos".* FROM "servicos" ORDER BY id desc LIMIT 10
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "servicos" WHERE (date(created_at) <= '2013-02-13' and data_saida is null)[0m
+  [1m[35mServico Load (0.9ms)[0m  SELECT "servicos".* FROM "servicos" WHERE (date(created_at) <= '2013-02-13' and data_saida is null) ORDER BY created_at desc LIMIT 10
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/page/index.html.arb (129.3ms)
+Completed 200 OK in 186ms (Views: 136.8ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-13 08:13:30 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/aticell/servicos" for 127.0.0.1 at 2013-04-13 08:13:33 -0300
+  Processing by Aticell::ServicosController#index as HTML
+  [1m[36mAdminUser Load (0.7ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "servicos"
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "servicos" WHERE (servicos.tipos='ORCAMENTO')[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "servicos" WHERE (servicos.tipos='OS')
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "servicos" WHERE (servicos.tipos='RECIBO')[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "servicos" WHERE (servicos.tipos='GARANTIA')
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "servicos" WHERE (date(created_at) <= '2013-02-13' and data_saida is null)[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "servicos" WHERE (date(created_at) <= '2013-01-13' and data_saida is null)
+  [1m[36mServico Load (1.7ms)[0m  [1mSELECT "servicos".* FROM "servicos" LIMIT 30 OFFSET 0[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "servicos"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "servicos".* FROM "servicos" LIMIT 30 OFFSET 0[0m
+  [1m[35mServico Load (2.0ms)[0m  SELECT "servicos".* FROM "servicos" ORDER BY "servicos"."created_at" desc LIMIT 30 OFFSET 0
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/resource/index.html.arb (581.4ms)
+Completed 200 OK in 730ms (Views: 587.0ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-13 08:13:34 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (54.5ms)
+
+
+Started GET "/aticell/servicos/5" for 127.0.0.1 at 2013-04-13 08:13:35 -0300
+  Processing by Aticell::ServicosController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mAdminUser Load (0.7ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 2 LIMIT 1[0m
+  [1m[35mServico Load (2.4ms)[0m  SELECT "servicos".* FROM "servicos" WHERE "servicos"."id" = 5 LIMIT 1
+  [1m[36mProduto Load (0.3ms)[0m  [1mSELECT "produtos".* FROM "produtos" WHERE ("produtos".servico_id = 5)[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = 'Servico' AND "active_admin_comments"."resource_id" = 5 AND "active_admin_comments"."namespace" = 'aticell'
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = 'Servico' AND "active_admin_comments"."resource_id" = 5 AND "active_admin_comments"."namespace" = 'aticell'[0m
+  [1m[35mAdminUser Load (1.1ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1
+Rendered admin/_sidebar_links.html.erb (6.2ms)
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/resource/show.html.arb (310.4ms)
+Completed 200 OK in 471ms (Views: 320.0ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-13 08:13:36 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/aticell/servicos/5/edit" for 127.0.0.1 at 2013-04-13 08:13:37 -0300
+  Processing by Aticell::ServicosController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mAdminUser Load (0.8ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 2 LIMIT 1[0m
+  [1m[35mServico Load (0.4ms)[0m  SELECT "servicos".* FROM "servicos" WHERE "servicos"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "servicos".* FROM "servicos" WHERE "servicos"."id" = 5 LIMIT 1[0m
+  [1m[35mProduto Load (0.3ms)[0m  SELECT "produtos".* FROM "produtos" WHERE ("produtos".servico_id = 5)
+Rendered admin/servicos/_line_item_fields.html.erb (105.3ms)
+Rendered admin/servicos/_form.html.erb (337.7ms)
+  [1m[36mAdminUser Load (1.1ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1[0m
+Rendered admin/_sidebar_links.html.erb (5.7ms)
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/resource/edit.html.arb (399.3ms)
+Completed 200 OK in 610ms (Views: 409.7ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-13 08:13:37 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/aticell/usuarios" for 127.0.0.1 at 2013-04-13 08:13:40 -0300
+  Processing by Aticell::UsuariosController#index as HTML
+  [1m[35mAdminUser Load (0.7ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 2 LIMIT 1
+  [1m[36mAdminUser Load (1.2ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE ("admin_users"."id" = 2) LIMIT 10000 OFFSET 0[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "admin_users" WHERE ("admin_users"."id" = 2)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE ("admin_users"."id" = 2) LIMIT 10000 OFFSET 0[0m
+  [1m[35mAdminUser Load (1.4ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE ("admin_users"."id" = 2) ORDER BY "admin_users"."id" desc LIMIT 10000 OFFSET 0
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/resource/index.html.arb (180.8ms)
+Completed 200 OK in 341ms (Views: 189.7ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-13 08:13:41 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/aticell/usuarios/2" for 127.0.0.1 at 2013-04-13 08:13:44 -0300
+  Processing by Aticell::UsuariosController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAdminUser Load (0.7ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 2 LIMIT 1
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/resource/show.html.arb (18.4ms)
+Completed 200 OK in 175ms (Views: 29.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-13 08:13:45 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.8ms)
