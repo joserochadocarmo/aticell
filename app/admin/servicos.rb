@@ -149,7 +149,7 @@ ActiveAdmin.register Servico do
   end
 
   action_item :only => :show do
-    link_to "Imprimir", generate_pdf_aticell_servico_path(resource)
+    link_to "Imprimir", generate_pdf_aticell_servico_path(resource),:target => "_blank"
   end
 
 end

@@ -40860,3 +40860,115 @@ ActionController::RoutingError (No route matches "/stylesheets/active_admin/prin
   
 
 Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.8ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/neto/Downloads/aticell/config/environment.rb:5)
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from <top (required)> at /home/neto/Downloads/aticell/config/initializers/config.rb:1)
+DEPRECATION WARNING: RAILS_ENV is deprecated. Please use ::Rails.env. (called from <top (required)> at /home/neto/Downloads/aticell/config/initializers/config.rb:1)
+
+
+Started GET "/aticell/usuarios/2" for 127.0.0.1 at 2013-04-13 08:20:01 -0300
+  Processing by Aticell::UsuariosController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSQL (1.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mAdminUser Load (0.8ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 2 LIMIT 1[0m
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/resource/show.html.arb (160.6ms)
+Completed 200 OK in 221ms (Views: 172.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-13 08:20:02 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/aticell/servicos" for 127.0.0.1 at 2013-04-13 08:20:05 -0300
+  Processing by Aticell::ServicosController#index as HTML
+  [1m[35mAdminUser Load (0.8ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 2 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "servicos"[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "servicos" WHERE (servicos.tipos='ORCAMENTO')
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "servicos" WHERE (servicos.tipos='OS')[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "servicos" WHERE (servicos.tipos='RECIBO')
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "servicos" WHERE (servicos.tipos='GARANTIA')[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "servicos" WHERE (date(created_at) <= '2013-02-13' and data_saida is null)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "servicos" WHERE (date(created_at) <= '2013-01-13' and data_saida is null)[0m
+  [1m[35mServico Load (1.8ms)[0m  SELECT "servicos".* FROM "servicos" LIMIT 30 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "servicos"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "servicos".* FROM "servicos" LIMIT 30 OFFSET 0
+  [1m[36mServico Load (2.1ms)[0m  [1mSELECT "servicos".* FROM "servicos" ORDER BY "servicos"."created_at" desc LIMIT 30 OFFSET 0[0m
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/resource/index.html.arb (639.4ms)
+Completed 200 OK in 793ms (Views: 645.2ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-13 08:20:06 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/aticell/servicos/5" for 127.0.0.1 at 2013-04-13 08:20:17 -0300
+  Processing by Aticell::ServicosController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mAdminUser Load (0.7ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 2 LIMIT 1
+  [1m[36mServico Load (0.5ms)[0m  [1mSELECT "servicos".* FROM "servicos" WHERE "servicos"."id" = 5 LIMIT 1[0m
+  [1m[35mProduto Load (0.3ms)[0m  SELECT "produtos".* FROM "produtos" WHERE ("produtos".servico_id = 5)
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = 'Servico' AND "active_admin_comments"."resource_id" = 5 AND "active_admin_comments"."namespace" = 'aticell'[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = 'Servico' AND "active_admin_comments"."resource_id" = 5 AND "active_admin_comments"."namespace" = 'aticell'
+  [1m[36mAdminUser Load (1.1ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1[0m
+Rendered admin/_sidebar_links.html.erb (5.5ms)
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/resource/show.html.arb (306.8ms)
+Completed 200 OK in 465ms (Views: 316.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-13 08:20:18 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/aticell/servicos/5/edit" for 127.0.0.1 at 2013-04-13 08:20:23 -0300
+  Processing by Aticell::ServicosController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mAdminUser Load (0.7ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 2 LIMIT 1
+  [1m[36mServico Load (0.4ms)[0m  [1mSELECT "servicos".* FROM "servicos" WHERE "servicos"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "servicos".* FROM "servicos" WHERE "servicos"."id" = 5 LIMIT 1
+  [1m[36mProduto Load (0.3ms)[0m  [1mSELECT "produtos".* FROM "produtos" WHERE ("produtos".servico_id = 5)[0m
+Rendered admin/servicos/_line_item_fields.html.erb (101.3ms)
+Rendered admin/servicos/_form.html.erb (315.5ms)
+  [1m[35mAdminUser Load (1.1ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1
+Rendered admin/_sidebar_links.html.erb (5.9ms)
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/resource/edit.html.arb (368.9ms)
+Completed 200 OK in 528ms (Views: 378.5ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-13 08:20:24 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.9ms)
+
+
+Started GET "/aticell/servicos/5/generate_pdf" for 127.0.0.1 at 2013-04-13 08:20:36 -0300
+  Processing by Aticell::ServicosController#generate_pdf as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mAdminUser Load (1.0ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 2 LIMIT 1[0m
+  [1m[35mServico Load (0.4ms)[0m  SELECT "servicos".* FROM "servicos" WHERE "servicos"."id" = 5 LIMIT 1
+  [1m[36mProduto Load (0.3ms)[0m  [1mSELECT "produtos".* FROM "produtos" WHERE ("produtos".servico_id = 5)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "produtos" WHERE ("produtos".servico_id = 5)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "produtos" WHERE ("produtos".servico_id = 5)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "produtos" WHERE ("produtos".servico_id = 5)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "produtos" WHERE ("produtos".servico_id = 5)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "produtos" WHERE ("produtos".servico_id = 5)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "produtos" WHERE ("produtos".servico_id = 5)[0m
+Rendered text template (0.0ms)
+Sent data ORCAMENTO Nota Nº5 .pdf (3.9ms)
+Completed 200 OK in 765ms (Views: 3.7ms | ActiveRecord: 1.9ms)
