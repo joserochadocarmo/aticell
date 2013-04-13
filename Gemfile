@@ -16,6 +16,6 @@ group :development do
   #gem 'mechanize'
   #gem 'better_errors'
   #gem 'binding_of_caller'
-  #gem 'sqlite3-ruby', :require => 'sqlite3'
+  gem 'sqlite3-ruby', :require => 'sqlite3'
 end
 
