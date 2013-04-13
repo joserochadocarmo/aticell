@@ -7,12 +7,15 @@ class Ability
     user ||= AdminUser.new # guest user (not logged in)
     if user.admin?
         can :manage, :all
+        cannot :destroy, AdminUser, :id => 1
     else
         #can :manage, LineItem
         can :manage, :all
-        can :manage, Servico
-        #cannot :destroy, Order
-        #cannot :manage, AdminUser
+        #can :manage, Servico
+        #can :manage, Produtos
+        #can :read, Admin
+        cannot :destroy, Servico
+        cannot :manage, AdminUser
     end
     #
     # The first argument to `can` is the action you are giving the user permission to do.
