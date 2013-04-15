@@ -20,6 +20,10 @@
       $('#itens').bind("cocoon:after-remove",function() {
          calc();
        });
+       
+      $('#itens').bind("cocoon:after-insert",function() {
+		calc();
+      });
     });
 
     function calc(){

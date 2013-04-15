@@ -10,12 +10,9 @@ class Servico < ActiveRecord::Base
   validates :nome,
             :presence => true,
             :length => {:maximum => 100}  
-  validates :endereco,
+  validates :modelo,
             :presence => true,
             :length => {:maximum => 100}
-  validates :telefone,
-            :presence => true,
-            :length => {:maximum => 100}          
 
   before_save :recalculate_price!
   before_update :entregar?,:recalculate_price!
