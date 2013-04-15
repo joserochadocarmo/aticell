@@ -1,7 +1,7 @@
 # coding: utf-8
 ActiveAdmin.register Servico do
   config.sort_order = "created_at_desc"
-  actions :all, except: [:destroy]
+  actions :all
   controller.authorize_resource :class => Servico
 
   controller do

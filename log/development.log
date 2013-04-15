@@ -760,3 +760,749 @@ Started GET "/aticell/servicos/4001/generate_pdf" for 127.0.0.1 at 2013-04-15 17
 Rendered text template (0.0ms)
 Sent data ORCAMENTO Nota Nº4001 .pdf (14.8ms)
 Completed 200 OK in 939ms (Views: 14.6ms | ActiveRecord: 2.3ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/neto/Downloads/aticell/config/environment.rb:5)
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from <top (required)> at /home/neto/Downloads/aticell/config/initializers/config.rb:1)
+DEPRECATION WARNING: RAILS_ENV is deprecated. Please use ::Rails.env. (called from <top (required)> at /home/neto/Downloads/aticell/config/initializers/config.rb:1)
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (163.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (497.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/neto/Downloads/aticell/config/environment.rb:5)
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from <top (required)> at /home/neto/Downloads/aticell/config/initializers/config.rb:1)
+DEPRECATION WARNING: RAILS_ENV is deprecated. Please use ::Rails.env. (called from <top (required)> at /home/neto/Downloads/aticell/config/initializers/config.rb:1)
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateAdminNotes (201104120621)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.8ms)[0m  [1mCREATE TABLE "admin_notes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "resource_id" integer NOT NULL, "resource_type" varchar(255) NOT NULL, "admin_user_id" integer, "admin_user_type" varchar(255), "body" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("admin_notes")
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE INDEX "index_admin_notes_on_resource_type_and_resource_id" ON "admin_notes" ("resource_type", "resource_id")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("admin_notes")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_admin_notes_on_resource_type_and_resource_id')[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE INDEX "index_admin_notes_on_admin_user_type_and_admin_user_id" ON "admin_notes" ("admin_user_type", "admin_user_id")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('201104120621')[0m
+Migrating to CreateServicos (20101005235210)
+  [1m[35mSQL (0.7ms)[0m  CREATE TABLE "servicos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tipos" varchar(255), "status" varchar(255), "nome" varchar(255), "endereco" varchar(255), "telefone" varchar(255), "modelo" varchar(255), "imei" varchar(255), "admin_user_id" integer, "data_saida" datetime, "entrega" boolean, "total_price" decimal(8,2) DEFAULT 0, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("servicos")[0m
+  [1m[35mSQL (0.3ms)[0m  CREATE INDEX "index_servicos_on_admin_user_id" ON "servicos" ("admin_user_id")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("servicos")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_servicos_on_admin_user_id')
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE INDEX "index_servicos_on_nome" ON "servicos" ("nome")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("servicos")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_servicos_on_nome')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_servicos_on_admin_user_id')
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE INDEX "index_servicos_on_modelo" ON "servicos" ("modelo")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("servicos")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_servicos_on_modelo')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_servicos_on_nome')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_servicos_on_admin_user_id')[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE INDEX "index_servicos_on_data_saida" ON "servicos" ("data_saida")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20101005235210')[0m
+Migrating to CreateProdutos (20101005235320)
+  [1m[35mSQL (0.6ms)[0m  CREATE TABLE "produtos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "servico_id" integer, "quantidade" integer DEFAULT 0, "unidade" varchar(4), "descricao" varchar(100), "price" decimal(8,2) DEFAULT 0, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("produtos")[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE INDEX "index_produtos_on_servico_id" ON "produtos" ("servico_id")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20101005235320')[0m
+Migrating to DeviseCreateAdminUsers (20110412132112)
+  [1m[35mSQL (0.6ms)[0m  CREATE TABLE "admin_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("admin_users")[0m
+  [1m[35mSQL (0.4ms)[0m  CREATE UNIQUE INDEX "index_admin_users_on_email" ON "admin_users" ("email")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("admin_users")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_admin_users_on_email')
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE UNIQUE INDEX "index_admin_users_on_reset_password_token" ON "admin_users" ("reset_password_token")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110412132112')
+Migrating to MoveAdminNotesToComments (20110426072324)
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("admin_notes")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_admin_notes_on_admin_user_type_and_admin_user_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_admin_notes_on_resource_type_and_resource_id')[0m
+  [1m[35mSQL (0.5ms)[0m  DROP INDEX "index_admin_notes_on_admin_user_type_and_admin_user_id"
+  [1m[36mSQL (0.6ms)[0m  [1mALTER TABLE "admin_notes" RENAME TO "active_admin_comments"[0m
+  [1m[35mSQL (0.6ms)[0m  CREATE TEMPORARY TABLE "altered_active_admin_comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "resource_id" integer NOT NULL, "resource_type" varchar(255) NOT NULL, "admin_user_id" integer, "author_type" varchar(255), "body" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("active_admin_comments")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_admin_notes_on_resource_type_and_resource_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("altered_active_admin_comments")[0m
+  [1m[35mSQL (0.3ms)[0m  CREATE INDEX "temp_index_admin_notes_on_resource_type_and_resource_id" ON "altered_active_admin_comments" ("resource_type", "resource_id")
+  [1m[36mSQL (0.5ms)[0m  [1mDROP TABLE "active_admin_comments"[0m
+  [1m[35mSQL (0.4ms)[0m  CREATE TABLE "active_admin_comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "resource_id" integer NOT NULL, "resource_type" varchar(255) NOT NULL, "admin_user_id" integer, "author_type" varchar(255), "body" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("altered_active_admin_comments")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('temp_index_admin_notes_on_resource_type_and_resource_id')
+  [1m[36mSQL (1.1ms)[0m  [1mPRAGMA index_list("active_admin_comments")[0m
+  [1m[35mSQL (0.3ms)[0m  CREATE INDEX "index_admin_notes_on_resource_type_and_resource_id" ON "active_admin_comments" ("resource_type", "resource_id")
+  [1m[36mSQL (0.3ms)[0m  [1mDROP TABLE "altered_active_admin_comments"[0m
+  [1m[35mSQL (0.3ms)[0m  CREATE TEMPORARY TABLE "altered_active_admin_comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "resource_id" integer NOT NULL, "resource_type" varchar(255) NOT NULL, "author_id" integer, "author_type" varchar(255), "body" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("active_admin_comments")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_admin_notes_on_resource_type_and_resource_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("altered_active_admin_comments")[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE INDEX "temp_index_admin_notes_on_resource_type_and_resource_id" ON "altered_active_admin_comments" ("resource_type", "resource_id")
+  [1m[36mSQL (0.3ms)[0m  [1mDROP TABLE "active_admin_comments"[0m
+  [1m[35mSQL (0.3ms)[0m  CREATE TABLE "active_admin_comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "resource_id" integer NOT NULL, "resource_type" varchar(255) NOT NULL, "author_id" integer, "author_type" varchar(255), "body" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("altered_active_admin_comments")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('temp_index_admin_notes_on_resource_type_and_resource_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("active_admin_comments")[0m
+  [1m[35mSQL (0.3ms)[0m  CREATE INDEX "index_admin_notes_on_resource_type_and_resource_id" ON "active_admin_comments" ("resource_type", "resource_id")
+  [1m[36mSQL (0.2ms)[0m  [1mDROP TABLE "altered_active_admin_comments"[0m
+  [1m[35mSQL (0.3ms)[0m  ALTER TABLE "active_admin_comments" ADD "namespace" varchar(255)
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("active_admin_comments")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_admin_notes_on_resource_type_and_resource_id')
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("active_admin_comments")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_active_admin_comments_on_namespace')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_admin_notes_on_resource_type_and_resource_id')
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE INDEX "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments" ("author_type", "author_id")[0m
+DEPRECATION WARNING: Active Admin: ActiveAdmin.default_namespace is deprecated. Please use ActiveAdmin.application.default_namespace. (called from up at /home/neto/Downloads/aticell/db/migrate/20110426072324_move_admin_notes_to_comments.rb:12)
+DEPRECATION WARNING: Active Admin: ActiveAdmin.default_namespace is deprecated. Please use ActiveAdmin.application.default_namespace. (called from up at /home/neto/Downloads/aticell/db/migrate/20110426072324_move_admin_notes_to_comments.rb:13)
+  [1m[35mSQL (0.1ms)[0m  UPDATE active_admin_comments SET namespace='aticell'
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110426072324')[0m
+Migrating to AddAdminToAdminUser (20130323190454)
+  [1m[35mSQL (0.7ms)[0m  ALTER TABLE "admin_users" ADD "nome" varchar(255)
+  [1m[36mSQL (0.4ms)[0m  [1mALTER TABLE "admin_users" ADD "username" varchar(255)[0m
+  [1m[35mSQL (0.4ms)[0m  ALTER TABLE "admin_users" ADD "admin" boolean DEFAULT 'f'
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130323190454')[0m
+  [1m[35mSQL (0.7ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("active_admin_comments")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_active_admin_comments_on_author_type_and_author_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_active_admin_comments_on_namespace')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_admin_notes_on_resource_type_and_resource_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("admin_users")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_admin_users_on_reset_password_token')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_admin_users_on_email')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("produtos")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_produtos_on_servico_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("servicos")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_servicos_on_data_saida')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_servicos_on_modelo')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_servicos_on_nome')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_servicos_on_admin_user_id')[0m
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/neto/Downloads/aticell/config/environment.rb:5)
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from <top (required)> at /home/neto/Downloads/aticell/config/initializers/config.rb:1)
+DEPRECATION WARNING: RAILS_ENV is deprecated. Please use ::Rails.env. (called from <top (required)> at /home/neto/Downloads/aticell/config/initializers/config.rb:1)
+
+
+Started GET "/aticell/servicos/1/generate_pdf" for 127.0.0.1 at 2013-04-15 17:37:19 -0300
+  Processing by Aticell::ServicosController#generate_pdf as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (1.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mAdminUser Load (0.3ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1
+Completed 401 Unauthorized in 16ms
+
+
+Started GET "/aticell/login" for 127.0.0.1 at 2013-04-15 17:37:19 -0300
+  Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/devise/shared/_links.erb (2.1ms)
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (339.7ms)
+Completed 200 OK in 389ms (Views: 346.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/aticell/servicos/" for 127.0.0.1 at 2013-04-15 17:37:20 -0300
+  Processing by Aticell::ServicosController#index as HTML
+Completed 401 Unauthorized in 33ms
+
+
+Started GET "/aticell/login" for 127.0.0.1 at 2013-04-15 17:37:20 -0300
+  Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/devise/shared/_links.erb (2.2ms)
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (101.8ms)
+Completed 200 OK in 159ms (Views: 109.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-15 17:37:20 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-15 17:37:20 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started POST "/aticell/login" for 127.0.0.1 at 2013-04-15 17:37:23 -0300
+  Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CHkUev+aTdBdPWHC34cfHxY18UunEWhF9VH5M5mgJfA=", "admin_user"=>{"username"=>"admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Entrar"}
+  [1m[36mAdminUser Load (0.3ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."username" = 'admin' LIMIT 1[0m
+Completed 401 Unauthorized in 29ms
+  Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CHkUev+aTdBdPWHC34cfHxY18UunEWhF9VH5M5mgJfA=", "admin_user"=>{"username"=>"admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Entrar"}
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/devise/shared/_links.erb (1.9ms)
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (43.7ms)
+Completed 200 OK in 254ms (Views: 50.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-15 17:37:23 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started POST "/aticell/login" for 127.0.0.1 at 2013-04-15 17:37:26 -0300
+  Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CHkUev+aTdBdPWHC34cfHxY18UunEWhF9VH5M5mgJfA=", "admin_user"=>{"username"=>"admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Entrar"}
+  [1m[35mAdminUser Load (1.1ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."username" = 'admin' LIMIT 1
+Completed 401 Unauthorized in 78ms
+  Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CHkUev+aTdBdPWHC34cfHxY18UunEWhF9VH5M5mgJfA=", "admin_user"=>{"username"=>"admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Entrar"}
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/devise/shared/_links.erb (1.9ms)
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (37.5ms)
+Completed 200 OK in 195ms (Views: 44.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-15 17:37:26 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.6ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/neto/Downloads/aticell/config/environment.rb:5)
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from <top (required)> at /home/neto/Downloads/aticell/config/initializers/config.rb:1)
+DEPRECATION WARNING: RAILS_ENV is deprecated. Please use ::Rails.env. (called from <top (required)> at /home/neto/Downloads/aticell/config/initializers/config.rb:1)
+  [1m[36mSQL (1.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (158.8ms)[0m  [1mDROP TABLE "active_admin_comments"[0m
+  [1m[35mSQL (111.0ms)[0m  CREATE TABLE "active_admin_comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "resource_id" integer NOT NULL, "resource_type" varchar(255) NOT NULL, "author_id" integer, "author_type" varchar(255), "body" text, "created_at" datetime, "updated_at" datetime, "namespace" varchar(255)) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("active_admin_comments")[0m
+  [1m[35mSQL (144.2ms)[0m  CREATE INDEX "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments" ("author_type", "author_id")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("active_admin_comments")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_active_admin_comments_on_author_type_and_author_id')
+  [1m[36mSQL (143.9ms)[0m  [1mCREATE INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("active_admin_comments")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_active_admin_comments_on_namespace')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_active_admin_comments_on_author_type_and_author_id')
+  [1m[36mSQL (143.7ms)[0m  [1mCREATE INDEX "index_admin_notes_on_resource_type_and_resource_id" ON "active_admin_comments" ("resource_type", "resource_id")[0m
+  [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (131.2ms)[0m  [1mDROP TABLE "admin_users"[0m
+  [1m[35mSQL (106.7ms)[0m  CREATE TABLE "admin_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "nome" varchar(255), "username" varchar(255), "admin" boolean DEFAULT 'f') 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("admin_users")[0m
+  [1m[35mSQL (144.2ms)[0m  CREATE UNIQUE INDEX "index_admin_users_on_email" ON "admin_users" ("email")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("admin_users")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_admin_users_on_email')
+  [1m[36mSQL (143.9ms)[0m  [1mCREATE UNIQUE INDEX "index_admin_users_on_reset_password_token" ON "admin_users" ("reset_password_token")[0m
+  [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (143.0ms)[0m  [1mDROP TABLE "produtos"[0m
+  [1m[35mSQL (122.1ms)[0m  CREATE TABLE "produtos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "servico_id" integer, "quantidade" integer DEFAULT 0, "unidade" varchar(4), "descricao" varchar(100), "price" decimal(8,2) DEFAULT 0.0, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("produtos")[0m
+  [1m[35mSQL (133.4ms)[0m  CREATE INDEX "index_produtos_on_servico_id" ON "produtos" ("servico_id")
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (143.8ms)[0m  DROP TABLE "servicos"
+  [1m[36mSQL (121.9ms)[0m  [1mCREATE TABLE "servicos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tipos" varchar(255), "status" varchar(255), "nome" varchar(255), "endereco" varchar(255), "telefone" varchar(255), "modelo" varchar(255), "imei" varchar(255), "admin_user_id" integer, "data_saida" datetime, "entrega" boolean, "total_price" decimal(8,2) DEFAULT 0.0, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("servicos")
+  [1m[36mSQL (144.3ms)[0m  [1mCREATE INDEX "index_servicos_on_admin_user_id" ON "servicos" ("admin_user_id")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("servicos")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_servicos_on_admin_user_id')[0m
+  [1m[35mSQL (144.0ms)[0m  CREATE INDEX "index_servicos_on_data_saida" ON "servicos" ("data_saida")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("servicos")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_servicos_on_data_saida')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_servicos_on_admin_user_id')[0m
+  [1m[35mSQL (132.7ms)[0m  CREATE INDEX "index_servicos_on_modelo" ON "servicos" ("modelo")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("servicos")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_servicos_on_modelo')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_servicos_on_data_saida')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_servicos_on_admin_user_id')
+  [1m[36mSQL (143.5ms)[0m  [1mCREATE INDEX "index_servicos_on_nome" ON "servicos" ("nome")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "servicos" ("tipos", "status", "nome", "endereco", "telefone", "modelo", "imei", "admin_user_id", "data_saida", "entrega", "total_price", "created_at", "updated_at", "id") VALUES ('RECIBO', NULL, 'Teste 01', NULL, NULL, 'IPHONE', NULL, NULL, NULL, NULL, 0.0, '2013-04-15 20:37:57.851609', '2013-04-15 20:37:57.851609', 4000)[0m
+  [1m[35mProduto Load (0.2ms)[0m  SELECT "produtos".* FROM "produtos" WHERE ("produtos".servico_id = 4000)
+  [1m[36mAREL (118.7ms)[0m  [1mDELETE FROM "servicos" WHERE "servicos"."id" = 4000[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "admin_users" WHERE (LOWER("admin_users"."email") = LOWER('admin@example.com')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "admin_users" WHERE ("admin_users"."username" = 'admin') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "admin_users" WHERE ("admin_users"."email" = 'admin@example.com') LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "admin_users" ("email", "encrypted_password", "reset_password_token", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "created_at", "updated_at", "nome", "username", "admin") VALUES ('admin@example.com', '$2a$10$FZzOMZBnOd/ZVA6ZHeQd2ONdN9bxFU.qGzfsNpgZeP8BbL8jBi0ZG', NULL, NULL, 0, NULL, NULL, NULL, NULL, '2013-04-15 20:37:58.340216', '2013-04-15 20:37:58.340216', 'admin', 'admin', 't')[0m
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/neto/Downloads/aticell/config/environment.rb:5)
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from <top (required)> at /home/neto/Downloads/aticell/config/initializers/config.rb:1)
+DEPRECATION WARNING: RAILS_ENV is deprecated. Please use ::Rails.env. (called from <top (required)> at /home/neto/Downloads/aticell/config/initializers/config.rb:1)
+  [1m[36mSQL (1.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mAREL (0.6ms)[0m  INSERT INTO "servicos" ("tipos", "status", "nome", "endereco", "telefone", "modelo", "imei", "admin_user_id", "data_saida", "entrega", "total_price", "created_at", "updated_at", "id") VALUES ('RECIBO', NULL, 'Teste 01', NULL, NULL, 'IPHONE', NULL, NULL, NULL, NULL, 0.0, '2013-04-15 20:38:12.088343', '2013-04-15 20:38:12.088343', 4000)
+  [1m[36mProduto Load (0.2ms)[0m  [1mSELECT "produtos".* FROM "produtos" WHERE ("produtos".servico_id = 4000)[0m
+  [1m[35mAREL (108.5ms)[0m  DELETE FROM "servicos" WHERE "servicos"."id" = 4000
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "admin_users" WHERE (LOWER("admin_users"."email") = LOWER('admin@example.com')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "admin_users" WHERE ("admin_users"."username" = 'admin') LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "admin_users" WHERE ("admin_users"."email" = 'admin@example.com') LIMIT 1[0m
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/neto/Downloads/aticell/config/environment.rb:5)
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from <top (required)> at /home/neto/Downloads/aticell/config/initializers/config.rb:1)
+DEPRECATION WARNING: RAILS_ENV is deprecated. Please use ::Rails.env. (called from <top (required)> at /home/neto/Downloads/aticell/config/initializers/config.rb:1)
+
+
+Started GET "/aticell/login" for 127.0.0.1 at 2013-04-15 17:39:07 -0300
+  Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/devise/shared/_links.erb (2.1ms)
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (423.2ms)
+Completed 200 OK in 456ms (Views: 430.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-15 17:39:08 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started POST "/aticell/login" for 127.0.0.1 at 2013-04-15 17:39:12 -0300
+  Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CHkUev+aTdBdPWHC34cfHxY18UunEWhF9VH5M5mgJfA=", "admin_user"=>{"username"=>"admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Entrar"}
+  [1m[36mSQL (0.9ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mAdminUser Load (1.4ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."username" = 'admin' LIMIT 1
+Completed 401 Unauthorized in 234ms
+  Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CHkUev+aTdBdPWHC34cfHxY18UunEWhF9VH5M5mgJfA=", "admin_user"=>{"username"=>"admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Entrar"}
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/devise/shared/_links.erb (2.0ms)
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (42.9ms)
+Completed 200 OK in 179ms (Views: 49.8ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-15 17:39:12 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.6ms)
+
+
+Started POST "/aticell/login" for 127.0.0.1 at 2013-04-15 17:39:16 -0300
+  Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CHkUev+aTdBdPWHC34cfHxY18UunEWhF9VH5M5mgJfA=", "admin_user"=>{"username"=>"admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Entrar"}
+  [1m[36mAdminUser Load (2.1ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."username" = 'admin' LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE "admin_users" SET "last_sign_in_at" = '2013-04-15 20:39:16.869687', "current_sign_in_at" = '2013-04-15 20:39:16.869687', "last_sign_in_ip" = '127.0.0.1', "current_sign_in_ip" = '127.0.0.1', "sign_in_count" = 1, "updated_at" = '2013-04-15 20:39:16.870296' WHERE "admin_users"."id" = 1
+Redirected to http://localhost:3000/aticell/servicos
+Completed 302 Found in 457ms
+
+
+Started GET "/aticell/servicos" for 127.0.0.1 at 2013-04-15 17:39:17 -0300
+  Processing by Aticell::ServicosController#index as HTML
+  [1m[36mAdminUser Load (0.8ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "servicos"
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "servicos" WHERE (servicos.tipos='ORCAMENTO')[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "servicos" WHERE (servicos.tipos='OS')
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "servicos" WHERE (servicos.tipos='RECIBO')[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "servicos" WHERE (servicos.tipos='GARANTIA')
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "servicos" WHERE (date(created_at) <= '2013-02-15' and data_saida is null)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "servicos" WHERE (date(created_at) <= '2013-01-15' and data_saida is null)
+  [1m[36mServico Load (0.2ms)[0m  [1mSELECT "servicos".* FROM "servicos" LIMIT 30 OFFSET 0[0m
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/resource/index.html.arb (358.2ms)
+Completed 200 OK in 508ms (Views: 368.3ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-15 17:39:17 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/aticell/servicos" for 127.0.0.1 at 2013-04-15 17:39:20 -0300
+  Processing by Aticell::ServicosController#index as HTML
+  [1m[35mAdminUser Load (0.8ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "servicos"[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "servicos" WHERE (servicos.tipos='ORCAMENTO')
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "servicos" WHERE (servicos.tipos='OS')[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "servicos" WHERE (servicos.tipos='RECIBO')
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "servicos" WHERE (servicos.tipos='GARANTIA')[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "servicos" WHERE (date(created_at) <= '2013-02-15' and data_saida is null)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "servicos" WHERE (date(created_at) <= '2013-01-15' and data_saida is null)[0m
+  [1m[35mServico Load (0.2ms)[0m  SELECT "servicos".* FROM "servicos" LIMIT 30 OFFSET 0
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/resource/index.html.arb (279.7ms)
+Completed 200 OK in 426ms (Views: 289.2ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-15 17:39:20 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/aticell/servicos/new" for 127.0.0.1 at 2013-04-15 17:39:22 -0300
+  Processing by Aticell::ServicosController#new as HTML
+  [1m[36mAdminUser Load (0.7ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1[0m
+Rendered admin/servicos/_line_item_fields.html.erb (104.6ms)
+Rendered admin/servicos/_form.html.erb (334.6ms)
+Rendered admin/_sidebar_links.html.erb (1.5ms)
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/resource/new.html.arb (354.0ms)
+Completed 200 OK in 518ms (Views: 364.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-15 17:39:23 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.5ms)
+
+
+Started POST "/aticell/servicos" for 127.0.0.1 at 2013-04-15 17:39:30 -0300
+  Processing by Aticell::ServicosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CHkUev+aTdBdPWHC34cfHxY18UunEWhF9VH5M5mgJfA=", "servico"=>{"tipos"=>"ORCAMENTO", "nome"=>"teste", "endereco"=>"", "telefone"=>"", "modelo"=>"teste", "imei"=>"", "admin_user_id"=>"1", "produtos_attributes"=>{"1366058363082"=>{"quantidade"=>"", "unidade"=>"", "descricao"=>"", "price"=>"", "_destroy"=>""}}}, "commit"=>"Salvar"}
+  [1m[35mAdminUser Load (0.7ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1
+  [1m[36mAREL (2.5ms)[0m  [1mINSERT INTO "servicos" ("tipos", "status", "nome", "endereco", "telefone", "modelo", "imei", "admin_user_id", "data_saida", "entrega", "total_price", "created_at", "updated_at") VALUES ('ORCAMENTO', NULL, 'teste', '', '', 'teste', '', 1, NULL, NULL, 0.0, '2013-04-15 20:39:30.437381', '2013-04-15 20:39:30.437381')[0m
+Redirected to http://localhost:3000/aticell/servicos/4001
+Completed 302 Found in 399ms
+
+
+Started GET "/aticell/servicos/4001" for 127.0.0.1 at 2013-04-15 17:39:30 -0300
+  Processing by Aticell::ServicosController#show as HTML
+  Parameters: {"id"=>"4001"}
+  [1m[35mAdminUser Load (0.8ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1
+  [1m[36mServico Load (3.5ms)[0m  [1mSELECT "servicos".* FROM "servicos" WHERE "servicos"."id" = 4001 LIMIT 1[0m
+  [1m[35mProduto Load (0.3ms)[0m  SELECT "produtos".* FROM "produtos" WHERE ("produtos".servico_id = 4001)
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = 'Servico' AND "active_admin_comments"."resource_id" = 4001 AND "active_admin_comments"."namespace" = 'aticell'[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = 'Servico' AND "active_admin_comments"."resource_id" = 4001 AND "active_admin_comments"."namespace" = 'aticell'
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1[0m
+Rendered admin/_sidebar_links.html.erb (3.9ms)
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/resource/show.html.arb (236.7ms)
+Completed 200 OK in 406ms (Views: 247.7ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-15 17:39:31 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/aticell/servicos" for 127.0.0.1 at 2013-04-15 17:39:33 -0300
+  Processing by Aticell::ServicosController#index as HTML
+  [1m[35mAdminUser Load (0.7ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "servicos"[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "servicos" WHERE (servicos.tipos='ORCAMENTO')
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "servicos" WHERE (servicos.tipos='OS')[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "servicos" WHERE (servicos.tipos='RECIBO')
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "servicos" WHERE (servicos.tipos='GARANTIA')[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "servicos" WHERE (date(created_at) <= '2013-02-15' and data_saida is null)
+  [1m[36mSQL (0.5ms)[0m  [1mSELECT COUNT(*) FROM "servicos" WHERE (date(created_at) <= '2013-01-15' and data_saida is null)[0m
+  [1m[35mServico Load (1.4ms)[0m  SELECT "servicos".* FROM "servicos" LIMIT 30 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "servicos"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "servicos".* FROM "servicos" LIMIT 30 OFFSET 0
+  [1m[36mServico Load (1.5ms)[0m  [1mSELECT "servicos".* FROM "servicos" ORDER BY "servicos"."created_at" desc LIMIT 30 OFFSET 0[0m
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/resource/index.html.arb (270.8ms)
+Completed 200 OK in 420ms (Views: 277.7ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-15 17:39:34 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/aticell/usuarios" for 127.0.0.1 at 2013-04-15 17:39:38 -0300
+  Processing by Aticell::UsuariosController#index as HTML
+  [1m[35mAdminUser Load (0.9ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1
+  [1m[36mAdminUser Load (1.1ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" LIMIT 10000 OFFSET 0[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "admin_users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" LIMIT 10000 OFFSET 0[0m
+  [1m[35mAdminUser Load (1.1ms)[0m  SELECT "admin_users".* FROM "admin_users" ORDER BY "admin_users"."id" desc LIMIT 10000 OFFSET 0
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/resource/index.html.arb (177.8ms)
+Completed 200 OK in 258ms (Views: 187.0ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-15 17:39:39 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/aticell/usuarios" for 127.0.0.1 at 2013-04-15 17:40:15 -0300
+  Processing by Aticell::UsuariosController#index as HTML
+  [1m[36mAdminUser Load (0.8ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1[0m
+  [1m[35mAdminUser Load (1.0ms)[0m  SELECT "admin_users".* FROM "admin_users" LIMIT 10000 OFFSET 0
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "admin_users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "admin_users".* FROM "admin_users" LIMIT 10000 OFFSET 0
+  [1m[36mAdminUser Load (1.1ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" ORDER BY "admin_users"."id" desc LIMIT 10000 OFFSET 0[0m
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/resource/index.html.arb (182.3ms)
+Completed 200 OK in 245ms (Views: 191.3ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-15 17:40:16 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/aticell/servicos" for 127.0.0.1 at 2013-04-15 17:40:18 -0300
+  Processing by Aticell::ServicosController#index as HTML
+  [1m[35mAdminUser Load (0.8ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "servicos"[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "servicos" WHERE (servicos.tipos='ORCAMENTO')
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "servicos" WHERE (servicos.tipos='OS')[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "servicos" WHERE (servicos.tipos='RECIBO')
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "servicos" WHERE (servicos.tipos='GARANTIA')[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "servicos" WHERE (date(created_at) <= '2013-02-15' and data_saida is null)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "servicos" WHERE (date(created_at) <= '2013-01-15' and data_saida is null)[0m
+  [1m[35mServico Load (1.3ms)[0m  SELECT "servicos".* FROM "servicos" LIMIT 30 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "servicos"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "servicos".* FROM "servicos" LIMIT 30 OFFSET 0
+  [1m[36mServico Load (1.7ms)[0m  [1mSELECT "servicos".* FROM "servicos" ORDER BY "servicos"."created_at" desc LIMIT 30 OFFSET 0[0m
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/resource/index.html.arb (339.3ms)
+Completed 200 OK in 518ms (Views: 348.7ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-15 17:40:18 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.9ms)
+
+
+Started GET "/aticell/servicos/4001" for 127.0.0.1 at 2013-04-15 17:40:22 -0300
+  Processing by Aticell::ServicosController#show as HTML
+  Parameters: {"id"=>"4001"}
+  [1m[35mAdminUser Load (6.1ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1
+  [1m[36mServico Load (1.1ms)[0m  [1mSELECT "servicos".* FROM "servicos" WHERE "servicos"."id" = 4001 LIMIT 1[0m
+  [1m[35mProduto Load (0.3ms)[0m  SELECT "produtos".* FROM "produtos" WHERE ("produtos".servico_id = 4001)
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = 'Servico' AND "active_admin_comments"."resource_id" = 4001 AND "active_admin_comments"."namespace" = 'aticell'[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = 'Servico' AND "active_admin_comments"."resource_id" = 4001 AND "active_admin_comments"."namespace" = 'aticell'
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1[0m
+Rendered admin/_sidebar_links.html.erb (3.6ms)
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/resource/show.html.arb (140.6ms)
+Completed 200 OK in 311ms (Views: 150.7ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-15 17:40:23 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/aticell/usuarios" for 127.0.0.1 at 2013-04-15 17:40:33 -0300
+  Processing by Aticell::UsuariosController#index as HTML
+  [1m[35mAdminUser Load (0.7ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1
+  [1m[36mAdminUser Load (1.1ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" LIMIT 10000 OFFSET 0[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "admin_users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" LIMIT 10000 OFFSET 0[0m
+  [1m[35mAdminUser Load (1.1ms)[0m  SELECT "admin_users".* FROM "admin_users" ORDER BY "admin_users"."id" desc LIMIT 10000 OFFSET 0
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/resource/index.html.arb (182.8ms)
+Completed 200 OK in 321ms (Views: 191.1ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-15 17:40:34 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/aticell/usuarios/new" for 127.0.0.1 at 2013-04-15 17:40:35 -0300
+  Processing by Aticell::UsuariosController#new as HTML
+  [1m[36mAdminUser Load (0.7ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1[0m
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/resource/new.html.arb (146.5ms)
+Completed 200 OK in 292ms (Views: 157.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-15 17:40:35 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started POST "/aticell/usuarios" for 127.0.0.1 at 2013-04-15 17:40:47 -0300
+  Processing by Aticell::UsuariosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CHkUev+aTdBdPWHC34cfHxY18UunEWhF9VH5M5mgJfA=", "usuario"=>{"nome"=>"Jose", "username"=>"jose", "email"=>"tom.jrc@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Salvar"}
+  [1m[35mAdminUser Load (0.9ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "admin_users" WHERE (LOWER("admin_users"."email") = LOWER('tom.jrc@gmail.com')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "admin_users" WHERE ("admin_users"."username" = 'jose') LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "admin_users" WHERE ("admin_users"."email" = 'tom.jrc@gmail.com') LIMIT 1[0m
+  [1m[35mAREL (4.9ms)[0m  INSERT INTO "admin_users" ("email", "encrypted_password", "reset_password_token", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "created_at", "updated_at", "nome", "username", "admin") VALUES ('tom.jrc@gmail.com', '$2a$10$iEWfpYA2c/z2IHpK9TVPpO7suMlNAmuoIXwbbTPWd0o4.lAFX57oa', NULL, NULL, 0, NULL, NULL, NULL, NULL, '2013-04-15 20:40:47.550613', '2013-04-15 20:40:47.550613', 'Jose', 'jose', 'f')
+Redirected to http://localhost:3000/aticell/usuarios/2
+Completed 302 Found in 446ms
+
+
+Started GET "/aticell/usuarios/2" for 127.0.0.1 at 2013-04-15 17:40:47 -0300
+  Processing by Aticell::UsuariosController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAdminUser Load (0.9ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1[0m
+  [1m[35mAdminUser Load (1.4ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 2 LIMIT 1
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/resource/show.html.arb (19.3ms)
+Completed 200 OK in 108ms (Views: 30.2ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-15 17:40:48 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started POST "/aticell/logout" for 127.0.0.1 at 2013-04-15 17:40:49 -0300
+  Processing by ActiveAdmin::Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"CHkUev+aTdBdPWHC34cfHxY18UunEWhF9VH5M5mgJfA="}
+  [1m[36mAdminUser Load (0.9ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/aticell
+Completed 302 Found in 147ms
+
+
+Started GET "/aticell" for 127.0.0.1 at 2013-04-15 17:40:49 -0300
+  Processing by Aticell::DashboardController#index as HTML
+Completed 401 Unauthorized in 21ms
+
+
+Started GET "/aticell/login" for 127.0.0.1 at 2013-04-15 17:40:49 -0300
+  Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/devise/shared/_links.erb (2.0ms)
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (39.0ms)
+Completed 200 OK in 154ms (Views: 45.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-15 17:40:50 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started POST "/aticell/login" for 127.0.0.1 at 2013-04-15 17:40:53 -0300
+  Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Kx2CK5WfU38TGF80FDHyvLOG2m0iqJSUASGMFmNOopw=", "admin_user"=>{"username"=>"jose", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Entrar"}
+  [1m[35mAdminUser Load (1.5ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."username" = 'jose' LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "admin_users" SET "last_sign_in_at" = '2013-04-15 20:40:54.083747', "current_sign_in_at" = '2013-04-15 20:40:54.083747', "last_sign_in_ip" = '127.0.0.1', "current_sign_in_ip" = '127.0.0.1', "sign_in_count" = 1, "updated_at" = '2013-04-15 20:40:54.084283' WHERE "admin_users"."id" = 2[0m
+Redirected to http://localhost:3000/aticell
+Completed 302 Found in 415ms
+
+
+Started GET "/aticell" for 127.0.0.1 at 2013-04-15 17:40:54 -0300
+  Processing by Aticell::DashboardController#index as HTML
+  [1m[35mAdminUser Load (0.8ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "servicos"[0m
+  [1m[35mServico Load (1.3ms)[0m  SELECT "servicos".* FROM "servicos" ORDER BY id desc LIMIT 10
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "servicos" WHERE (date(created_at) <= '2013-02-15' and data_saida is null)[0m
+  [1m[35mServico Load (0.3ms)[0m  SELECT "servicos".* FROM "servicos" WHERE (date(created_at) <= '2013-02-15' and data_saida is null) ORDER BY created_at desc LIMIT 10
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/page/index.html.arb (61.4ms)
+Completed 200 OK in 181ms (Views: 130.9ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-15 17:40:54 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.6ms)
+
+
+Started GET "/aticell/servicos" for 127.0.0.1 at 2013-04-15 17:40:56 -0300
+  Processing by Aticell::ServicosController#index as HTML
+  [1m[36mAdminUser Load (2.7ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 2 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "servicos"
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "servicos" WHERE (servicos.tipos='ORCAMENTO')[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM "servicos" WHERE (servicos.tipos='OS')
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "servicos" WHERE (servicos.tipos='RECIBO')[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "servicos" WHERE (servicos.tipos='GARANTIA')
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "servicos" WHERE (date(created_at) <= '2013-02-15' and data_saida is null)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "servicos" WHERE (date(created_at) <= '2013-01-15' and data_saida is null)
+  [1m[36mServico Load (62.8ms)[0m  [1mSELECT "servicos".* FROM "servicos" LIMIT 30 OFFSET 0[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "servicos"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "servicos".* FROM "servicos" LIMIT 30 OFFSET 0[0m
+  [1m[35mServico Load (1.6ms)[0m  SELECT "servicos".* FROM "servicos" ORDER BY "servicos"."created_at" desc LIMIT 30 OFFSET 0
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/resource/index.html.arb (338.4ms)
+Completed 200 OK in 493ms (Views: 282.9ms | ActiveRecord: 69.0ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-15 17:40:57 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/aticell/servicos/4001/edit" for 127.0.0.1 at 2013-04-15 17:40:59 -0300
+  Processing by Aticell::ServicosController#edit as HTML
+  Parameters: {"id"=>"4001"}
+  [1m[36mAdminUser Load (0.7ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 2 LIMIT 1[0m
+  [1m[35mServico Load (0.9ms)[0m  SELECT "servicos".* FROM "servicos" WHERE "servicos"."id" = 4001 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "servicos".* FROM "servicos" WHERE "servicos"."id" = 4001 LIMIT 1[0m
+  [1m[35mProduto Load (0.3ms)[0m  SELECT "produtos".* FROM "produtos" WHERE ("produtos".servico_id = 4001)
+Rendered admin/servicos/_line_item_fields.html.erb (109.8ms)
+Rendered admin/servicos/_form.html.erb (269.6ms)
+  [1m[36mAdminUser Load (1.1ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1[0m
+Rendered admin/_sidebar_links.html.erb (5.0ms)
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/activeadmin-0.5.1/app/views/active_admin/resource/edit.html.arb (381.6ms)
+Completed 200 OK in 550ms (Views: 391.0ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/stylesheets/active_admin/print.css" for 127.0.0.1 at 2013-04-15 17:41:00 -0300
+
+ActionController::RoutingError (No route matches "/stylesheets/active_admin/print.css"):
+  
+
+Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
